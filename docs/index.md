@@ -4,7 +4,9 @@ Witaj na stronie z materiałami do zajęć z informatyki zawodowej.
 
 <div class="grid cards" markdown>
 
--   :material-code-braces:{ .lg .middle } **Podstawy Programowania**
+-   ![Podstawy Programowania](assets/img/programowanie.svg){ width="90" }
+
+    **Podstawy Programowania**
 
     ---
 
@@ -12,7 +14,9 @@ Witaj na stronie z materiałami do zajęć z informatyki zawodowej.
 
     [:octicons-arrow-right-24: Przejdź](podstawy-programowania/index.md)
 
--   :material-server:{ .lg .middle } **ASO**
+-   ![ASO](assets/img/aso.svg){ width="90" }
+
+    **ASO**
 
     ---
 
