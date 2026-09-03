@@ -1,3 +1,3 @@
 # ASO — Administracja Systemami Operacyjnymi
 
-Wybierz klasę z menu powyżej.
+Wybierz klasę z menu
