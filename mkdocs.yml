@@ -3,6 +3,20 @@ site_url: https://a-wieczorek-nauczyciel.github.io/informatyka-zawodowe/
 theme:
   name: material
   language: pl
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Przełącz na tryb ciemny
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Przełącz na tryb jasny
+  features:
+    - navigation.tabs
+    - navigation.top
+    - content.code.copy
+    - toc.integrate
 nav:
   - Start: index.md
   - Podstawy Programowania:
