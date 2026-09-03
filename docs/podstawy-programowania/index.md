@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # Podstawy Programowania
 
 Materiały i zadania dla klas 3 i 4. Jeśli czujesz, że brakuje Ci podstaw z poprzednich lat, zajrzyj do sekcji **Powtórka** — jest właśnie dla Ciebie.
