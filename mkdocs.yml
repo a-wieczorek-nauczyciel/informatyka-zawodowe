@@ -20,9 +20,11 @@ theme:
 nav:
   - Start: index.md
   - Podstawy Programowania:
+      - podstawy-programowania/index.md
       - Klasa 3: podstawy-programowania/klasa-3/index.md
       - Klasa 4: podstawy-programowania/klasa-4/index.md
       - Powtórka: podstawy-programowania/powtorka/index.md
   - ASO:
+      - aso/index.md
       - Klasa 2: aso/klasa-2/index.md
       - Klasa 3: aso/klasa-3/index.md
