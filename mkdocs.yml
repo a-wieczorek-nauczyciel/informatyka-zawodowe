@@ -1,0 +1,6 @@
+site_name: Materiały testowe
+theme:
+  name: material
+  language: pl
+nav:
+  - Start: index.md
