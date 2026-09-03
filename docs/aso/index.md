@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # ASO — Administracja Systemami Operacyjnymi
 
 Materiały i zadania z administracji systemami operacyjnymi.
