@@ -1,8 +1,23 @@
 # Materiały — Informatyka
 
-Witaj na stronie z materiałami do zajęć.
+Witaj na stronie z materiałami do zajęć z informatyki zawodowej.
 
-## Wybierz przedmiot
+<div class="grid cards" markdown>
 
-- **[Podstawy Programowania](podstawy-programowania/klasa-3/index.md)** — materiały, zadania i powtórka dla klas 3 i 4
-- **[ASO](aso/klasa-2/index.md)** — materiały i zadania z Administracji Systemami Operacyjnymi
+-   :material-code-braces:{ .lg .middle } **Podstawy Programowania**
+
+    ---
+
+    Materiały, zadania i powtórka dla klas 3 i 4
+
+    [:octicons-arrow-right-24: Przejdź](podstawy-programowania/index.md)
+
+-   :material-server:{ .lg .middle } **ASO**
+
+    ---
+
+    Administracja Systemami Operacyjnymi — materiały i zadania
+
+    [:octicons-arrow-right-24: Przejdź](aso/index.md)
+
+</div>
