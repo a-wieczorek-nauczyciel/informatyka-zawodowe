@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # Materiały — Informatyka
 
 Witaj na stronie z materiałami do zajęć z informatyki zawodowej.
