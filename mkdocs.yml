@@ -1,8 +1,10 @@
 site_name: Materiały — Informatyka
+site_url: https://a-wieczorek-nauczyciel.github.io/informatyka-zawodowe/
 theme:
   name: material
   language: pl
 nav:
+  - Start: index.md
   - Podstawy Programowania:
       - Klasa 3: podstawy-programowania/klasa-3/index.md
       - Klasa 4: podstawy-programowania/klasa-4/index.md
