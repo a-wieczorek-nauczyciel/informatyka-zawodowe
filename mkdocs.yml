@@ -31,7 +31,14 @@ nav:
   - Start: index.md
   - Podstawy Programowania:
       - podstawy-programowania/index.md
-      - Klasa 3: podstawy-programowania/klasa-3/index.md
+      - Klasa 3:
+          - podstawy-programowania/klasa-3/index.md
+          - Funkcje. Funkcje biblioteczne:
+              - podstawy-programowania/klasa-3/01-funkcje/index.md
+              - Czym jest funkcja: podstawy-programowania/klasa-3/01-funkcje/01-czym-jest-funkcja/index.md
+              - Parametry i argumenty: podstawy-programowania/klasa-3/01-funkcje/02-parametry-i-argumenty/index.md
+              - Moduły i biblioteki: podstawy-programowania/klasa-3/01-funkcje/03-moduly-i-biblioteki/index.md
+              - Zadania utrwalające: podstawy-programowania/klasa-3/01-funkcje/04-zadania-utrwalajace/index.md
       - Klasa 4: podstawy-programowania/klasa-4/index.md
       - Powtórka: podstawy-programowania/powtorka/index.md
   - ASO:
