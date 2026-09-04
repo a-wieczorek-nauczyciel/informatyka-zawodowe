@@ -44,6 +44,89 @@ print(wynik)
 ??? question "Zadanie na lekcję (kliknij, żeby rozwinąć)"
     Napisz funkcję `czy_parzysta(liczba)`, która zwraca `True`, jeśli liczba jest parzysta, i `False` w przeciwnym razie. Przetestuj ją dla pięciu różnych liczb.
 
+## Zadania wprowadzające
+
+Zanim zaczniesz pisać własne funkcje, upewnij się, że rozumiesz, jak działają gotowe. Te zadania nie wymagają pisania kodu od zera.
+
+### Przewidź wynik
+
+??? question "1. Co wypisze ten kod?"
+```python
+    def podwoj(liczba):
+        return liczba * 2
+
+    wynik = podwoj(7)
+    print(wynik)
+```
+    Zanim uruchomisz kod, zapisz na kartce, co Twoim zdaniem się wypisze. Dopiero potem sprawdź w Codespace, czy się zgadza.
+
+??? question "2. Co wypisze ten kod?"
+```python
+    def przywitaj(imie):
+        print(f"Cześć, {imie}!")
+
+    przywitaj("Ola")
+    przywitaj("Kuba")
+```
+    Ile razy wykona się `print`? Co dokładnie się wypisze?
+
+### Znajdź błąd
+
+??? question "3. Ten kod nie działa — dlaczego?"
+```python
+    def pole_kwadratu(bok):
+        wynik = bok * bok
+
+    print(pole_kwadratu(4))
+```
+    Kod się uruchomi bez błędu, ale wynik będzie zaskakujący. Jakiego słowa kluczowego brakuje i dlaczego to zmienia wynik?
+
+??? question "4. Ten kod zgłasza błąd — dlaczego?"
+```python
+    def pomnoz(a, b):
+        return a * b
+
+    wynik = pomnoz(5)
+    print(wynik)
+```
+    Python zgłosi błąd przy wywołaniu funkcji. Co dokładnie jest nie tak?
+
+### Dokończ kod
+
+??? question "5. Uzupełnij brakujący fragment"
+```python
+    def odejmij(a, b):
+        wynik = ___
+        return wynik
+
+    print(odejmij(10, 3))  # ma wypisać 7
+```
+    Co powinno znaleźć się w miejscu `___`?
+
+??? question "6. Uzupełnij wywołanie funkcji"
+```python
+    def przedstaw_sie(imie, wiek):
+        print(f"Mam na imię {imie} i mam {wiek} lat")
+
+    ___  # wywołaj funkcję tak, żeby wypisała: "Mam na imię Adrian i mam 25 lat"
+```
+
+### Prześledź krok po kroku
+
+??? question "7. Prześledź działanie krok po kroku"
+```python
+    def krok(liczba):
+        liczba = liczba + 1
+        print(liczba)
+        return liczba
+
+    x = 5
+    x = krok(x)
+    x = krok(x)
+    print(x)
+```
+    Zapisz na kartce, co się wypisze **po kolei**, linijka po linijce — zanim uruchomisz kod. Ile razy wykona się `print` i jakie wartości pokaże?
+
 ## Zadania dodatkowe
 
 Poćwicz pisanie własnych funkcji na kilku poziomach trudności. Zacznij od podstawowych, przejdź dalej dopiero gdy poprzednie wychodzą Ci bez zaglądania do notatek.
