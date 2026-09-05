@@ -1,0 +1,1970 @@
+
+<!doctype html>
+<html lang="pl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://a-wieczorek-nauczyciel.github.io/informatyka-zawodowe/podstawy-programowania/klasa-3/03-klasy-i-obiekty/05-destruktor-i-klasy-zaprzyjaznione/">
+      
+      
+        <link rel="prev" href="../04-skladniki-statyczne/">
+      
+      
+        <link rel="next" href="../06-zadania-utrwalajace/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Destruktor i klasy zaprzyjaźnione - Materiały — Informatyka</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#destruktor-i-klasy-zaprzyjaznione" class="md-skip">
+          Przejdź do treści
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Nagłówek">
+    <a href="../../../.." title="Materiały — Informatyka" class="md-header__button md-logo" aria-label="Materiały — Informatyka" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Materiały — Informatyka
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Destruktor i klasy zaprzyjaźnione
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Przełącz na tryb ciemny"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Przełącz na tryb ciemny" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Przełącz na tryb jasny"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Przełącz na tryb jasny" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Szukaj" placeholder="Szukaj" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Szukaj">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Wyczyść" aria-label="Wyczyść" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicjowanie wyszukiwania
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Zakładki" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Podstawy Programowania
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../aso/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ASO
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Nawigacja" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Materiały — Informatyka" class="md-nav__button md-logo" aria-label="Materiały — Informatyka" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Materiały — Informatyka
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Podstawy Programowania
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Podstawy Programowania
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Klasa 3
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Klasa 3
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../01-funkcje/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funkcje. Funkcje biblioteczne
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Funkcje. Funkcje biblioteczne
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-funkcje/01-czym-jest-funkcja/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Czym jest funkcja
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-funkcje/02-parametry-i-argumenty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parametry i argumenty
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-funkcje/03-moduly-i-biblioteki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moduły i biblioteki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-funkcje/04-zadania-utrwalajace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zadania utrwalające
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../02-zasady-programowania-obiektowego/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zasady programowania obiektowego
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Zasady programowania obiektowego
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-zasady-programowania-obiektowego/01-czym-jest-programowanie-obiektowe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Czym jest programowanie obiektowe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-zasady-programowania-obiektowego/02-podstawowe-pojecia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Podstawowe pojęcia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-zasady-programowania-obiektowego/03-zadania-utrwalajace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zadania utrwalające
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Klasy i obiekty
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Klasy i obiekty
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-pola-i-metody/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pola i metody
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-konstruktor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Konstruktor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-specyfikatory-dostepu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specyfikatory dostępu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-skladniki-statyczne/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Składniki statyczne
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Destruktor i klasy zaprzyjaźnione
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Destruktor i klasy zaprzyjaźnione
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Spis treści">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Spis treści
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#destruktor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Destruktor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Destruktor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dlaczego-c-potrzebuje-destruktora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dlaczego C++ potrzebuje destruktora
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-i-java-automatyczny-garbage-collector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python i Java — automatyczny garbage collector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__del__-w-pythonie-istnieje-ale-prawie-nikt-go-nie-uzywa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __del__ w Pythonie — istnieje, ale prawie nikt go nie używa
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#klasy-i-funkcje-zaprzyjaznione-friend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Klasy i funkcje zaprzyjaźnione (friend)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Klasy i funkcje zaprzyjaźnione (friend)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#czym-jest-friend-w-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Czym jest friend w C++
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#po-co-to-komu-i-dlaczego-to-kontrowersyjne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Po co to komu — i dlaczego to kontrowersyjne
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dlaczego-python-i-java-nie-maja-tego-mechanizmu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dlaczego Python i Java nie mają tego mechanizmu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zadania-utrwalajace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zadania utrwalające
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-zadania-utrwalajace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zadania utrwalające
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../klasa-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Klasa 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../powtorka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Powtórka
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../aso/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ASO
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ASO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../aso/klasa-2/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Klasa 2
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Klasa 2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../aso/klasa-2/01-wirtualizacja-i-instalacja/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wirtualizacja i instalacja systemów operacyjnych
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Wirtualizacja i instalacja systemów operacyjnych
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../aso/klasa-2/01-wirtualizacja-i-instalacja/01-czym-jest-wirtualizacja/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Czym jest wirtualizacja
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../aso/klasa-2/01-wirtualizacja-i-instalacja/02-planowanie-instalacji/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Planowanie instalacji
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../aso/klasa-2/01-wirtualizacja-i-instalacja/03-instalacja-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalacja Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../aso/klasa-2/01-wirtualizacja-i-instalacja/04-instalacja-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalacja Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../aso/klasa-2/01-wirtualizacja-i-instalacja/05-zadania-utrwalajace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zadania utrwalające
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../aso/klasa-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Klasa 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="destruktor-i-klasy-zaprzyjaznione">Destruktor i klasy zaprzyjaźnione</h1>
+<div class="admonition info">
+<p class="admonition-title">Cel lekcji</p>
+<p>Po tej lekcji będziesz wiedział, czym jest destruktor i dlaczego w Pythonie prawie się go nie używa, a także będziesz rozumiał ideę klas zaprzyjaźnionych — mechanizmu, który w ogóle nie istnieje w Pythonie ani w Javie, a jest cechą charakterystyczną C++.</p>
+</div>
+<h2 id="destruktor">Destruktor</h2>
+<h3 id="dlaczego-c-potrzebuje-destruktora">Dlaczego C++ potrzebuje destruktora</h3>
+<p>W C++ programista <strong>ręcznie zarządza pamięcią</strong> — gdy tworzy obiekt, sam decyduje, kiedy go usunąć i zwolnić zajmowaną przez niego pamięć. Destruktor to specjalna metoda wywoływana automatycznie w momencie zniszczenia obiektu, używana głównie do "posprzątania" (np. zamknięcia pliku, zwolnienia zasobu).</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Plik</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Plik</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">nazwa</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// otwórz plik</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="o">~</span><span class="n">Plik</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// destruktor — tylda + nazwa klasy</span>
+<span class="w">        </span><span class="c1">// zamknij plik, zwolnij zasoby</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<h3 id="python-i-java-automatyczny-garbage-collector">Python i Java — automatyczny garbage collector</h3>
+<p><strong>Python i Java nie wymagają ręcznego zarządzania pamięcią.</strong> Obie mają mechanizm zwany <em>garbage collector</em> (odśmiecacz pamięci), który automatycznie wykrywa, kiedy obiekt nie jest już nigdzie używany, i sam zwalnia zajmowaną przez niego pamięć — bez udziału programisty.</p>
+<div class="admonition info">
+<p class="admonition-title">Jak to wygląda w Javie</p>
+<p>Java <strong>nie ma prawdziwego destruktora</strong>. Kiedyś istniała metoda <code>finalize()</code>, wywoływana (niegwarantowanie, kiedy dokładnie) przed usunięciem obiektu przez garbage collector — ale została uznana za zawodną i <strong>usunięta w nowszych wersjach Javy</strong>. Współczesna Java rozwiązuje problem "posprzątania po sobie" inaczej — przez mechanizm <code>try-with-resources</code> i interfejs <code>AutoCloseable</code>, gdzie programista jawnie definiuje metodę <code>close()</code> i sam decyduje, kiedy ją wywołać (albo robi to automatycznie blok <code>try-with-resources</code>), zamiast polegać na niepewnym momencie działania garbage collectora.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Plik</span><span class="w"> </span><span class="n">plik</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Plik</span><span class="p">(</span><span class="s">"dane.txt"</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// praca z plikiem</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="c1">// automatyczne wywołanie plik.close() na końcu bloku</span>
+</code></pre></div>
+<h3 id="__del__-w-pythonie-istnieje-ale-prawie-nikt-go-nie-uzywa"><code>__del__</code> w Pythonie — istnieje, ale prawie nikt go nie używa</h3>
+<p>Python ma odpowiednik destruktora — metodę <code>__del__</code>, wywoływaną, gdy obiekt jest usuwany przez garbage collector.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Plik</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nazwa</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nazwa</span> <span class="o">=</span> <span class="n">nazwa</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Otwieram </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nazwa</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Zamykam </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nazwa</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">plik</span> <span class="o">=</span> <span class="n">Plik</span><span class="p">(</span><span class="s2">"dane.txt"</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">plik</span>  <span class="c1"># wymusza usunięcie obiektu, wywołuje __del__</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Dlaczego <code>__del__</code> jest rzadko używany w praktyce</p>
+<p>Podobnie jak Javowe <code>finalize()</code>, moment wywołania <code>__del__</code> <strong>nie jest gwarantowany</strong> — Python decyduje, kiedy dokładnie usunąć obiekt z pamięci, i nie zawsze da się to precyzyjnie przewidzieć. Do "sprzątania" zasobów (zamykania plików, połączeń) standardowo używa się w Pythonie instrukcji <code>with</code>, działającej na tej samej zasadzie co Javowe <code>try-with-resources</code>:</p>
+</div>
+<div class="highlight"><pre><span></span><code>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"dane.txt"</span><span class="p">)</span> <span class="k">as</span> <span class="n">plik</span><span class="p">:</span>
+        <span class="n">zawartosc</span> <span class="o">=</span> <span class="n">plik</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="c1"># plik zostaje zamknięty automatycznie na końcu bloku with</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Podsumowanie</p>
+<p>Trzy języki, trzy podejścia: <strong>C++</strong> wymaga jawnego destruktora, bo programista sam zarządza pamięcią. <strong>Java</strong> kiedyś miała <code>finalize()</code>, dziś zaleca <code>try-with-resources</code>. <strong>Python</strong> ma <code>__del__</code>, ale w praktyce też zaleca się <code>with</code>. Wspólny mianownik: nowoczesny kod (Java, Python) <strong>unika polegania na destruktorze</strong> i zamiast tego jawnie zamyka zasoby w kontrolowanym momencie.</p>
+</div>
+<details class="question">
+<summary>Zadanie 1: Zaobserwuj <strong>del</strong></summary>
+<p>Zdefiniuj klasę <code>Zasob</code> z <code>__init__</code> wypisującym <code>"Tworzę zasób"</code> i <code>__del__</code> wypisującym <code>"Usuwam zasób"</code>. Stwórz obiekt, a potem wywołaj na nim <code>del nazwa_obiektu</code>. Sprawdź, czy oba komunikaty się pojawiły.</p>
+</details>
+<details class="question">
+<summary>Zadanie 2: Napisz odpowiednik przez <code>with</code></summary>
+<p>Napisz prosty program otwierający i czytający dowolny plik tekstowy za pomocą <code>with open(...)</code>, zamiast polegać na <code>__del__</code>. Wyjaśnij w komentarzu, dlaczego to podejście jest bardziej przewidywalne.</p>
+</details>
+<details class="question">
+<summary>Zadanie 3: Porównanie trzech języków</summary>
+<p>Własnymi słowami wyjaśnij różnicę w zarządzaniu pamięcią między C++ a Pythonem/Javą. Dlaczego C++ <strong>musi</strong> mieć destruktor, a Python i Java mogą się bez niego (w praktyce) obejść?</p>
+</details>
+<hr />
+<h2 id="klasy-i-funkcje-zaprzyjaznione-friend">Klasy i funkcje zaprzyjaźnione (friend)</h2>
+<div class="admonition danger">
+<p class="admonition-title">Ten mechanizm nie istnieje ani w Pythonie, ani w Javie</p>
+<p>W przeciwieństwie do konstruktora kopiującego czy destruktora (które mają swój odpowiednik lub namiastkę w innych językach), <strong><code>friend</code> to unikalna cecha C++</strong>. Ani Python, ani Java nie mają tego mechanizmu w żadnej formie — nawet w uproszczonej. Poznajesz to wyłącznie teoretycznie, bo może pojawić się w pytaniu na egzaminie zawodowym odwołującym się do C++.</p>
+</div>
+<h3 id="czym-jest-friend-w-c">Czym jest <code>friend</code> w C++</h3>
+<p>Domyślnie prywatne (<code>private</code>) pola klasy są niedostępne z zewnątrz — nawet dla innej, niepowiązanej klasy czy funkcji. <code>friend</code> pozwala <strong>jawnie zrobić wyjątek</strong>: wskazana klasa lub funkcja dostaje dostęp do prywatnych składowych, mimo że normalnie by go nie miała.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Konto</span><span class="w"> </span><span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">saldo</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Bank</span><span class="p">;</span><span class="w">  </span><span class="c1">// klasa Bank dostaje dostęp do prywatnych pól Konto</span>
+
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Konto</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">saldo</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">saldo</span><span class="p">(</span><span class="n">saldo</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">};</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Bank</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">ustawSaldo</span><span class="p">(</span><span class="n">Konto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">konto</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">nowe_saldo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">konto</span><span class="p">.</span><span class="n">saldo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nowe_saldo</span><span class="p">;</span><span class="w">  </span><span class="c1">// działa TYLKO dzięki friend — normalnie byłoby zablokowane</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Podobnie można zaprzyjaźnić pojedynczą <strong>funkcję</strong> (niekoniecznie całą klasę) — <code>friend void jakasFunkcja(Konto&amp; k);</code> daje dostęp tylko tej jednej funkcji.</p>
+<h3 id="po-co-to-komu-i-dlaczego-to-kontrowersyjne">Po co to komu — i dlaczego to kontrowersyjne</h3>
+<p><code>friend</code> bywa używane, gdy dwie klasy są ze sobą <strong>ściśle powiązane</strong> i sztuczne trzymanie się pełnej hermetyzacji utrudniałoby pisanie kodu bardziej, niż by pomagało (klasyczny przykład: klasa <code>Macierz</code> i <code>Wektor</code>, które muszą często sięgać do swoich wewnętrznych danych). Jednocześnie wielu programistów uważa <code>friend</code> za <strong>osłabienie hermetyzacji</strong> — bo łamie zasadę, że tylko sama klasa kontroluje dostęp do swoich prywatnych danych, i część projektów świadomie go unika.</p>
+<h3 id="dlaczego-python-i-java-nie-maja-tego-mechanizmu">Dlaczego Python i Java nie mają tego mechanizmu</h3>
+<ul>
+<li><strong>Python</strong> i tak nie ma <strong>prawdziwego</strong> <code>private</code> (pamiętasz konwencję <code>_</code>/<code>__</code> z poprzedniej lekcji) — skoro nic nie jest naprawdę zablokowane, nie ma czego "odblokowywać" przez <code>friend</code>.</li>
+<li><strong>Java</strong> rozwiązuje podobny problem inaczej — przez <strong>dostęp pakietowy</strong> (<em>package-private</em>): pole lub metoda bez żadnego specyfikatora (bez <code>public</code>, <code>private</code>, <code>protected</code>) jest dostępna dla <strong>wszystkich klas w tym samym pakiecie</strong>, nawet niepowiązanych dziedziczeniem. To nie jest to samo co <code>friend</code> (bo obejmuje <em>cały pakiet</em>, a nie jedną wybraną klasę), ale rozwiązuje pokrewny problem — kontrolowane rozluźnienie hermetyzacji między ściśle powiązanymi klasami.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Konto</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">saldo</span><span class="p">;</span><span class="w">  </span><span class="c1">// brak specyfikatora = dostęp pakietowy, NIE jest to friend, ale najbliższy odpowiednik</span>
+
+<span class="w">    </span><span class="n">Konto</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">saldo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">saldo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">saldo</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Bank</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">ustawSaldo</span><span class="p">(</span><span class="n">Konto</span><span class="w"> </span><span class="n">konto</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">noweSaldo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">konto</span><span class="p">.</span><span class="na">saldo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">noweSaldo</span><span class="p">;</span><span class="w">  </span><span class="c1">// działa, bo Bank i Konto są w tym samym pakiecie</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Podsumowanie różnic</p>
+<table>
+<thead>
+<tr>
+<th>Język</th>
+<th>Mechanizm</th>
+<th>Zakres dostępu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C++</td>
+<td><code>friend</code></td>
+<td>Dokładnie wskazana klasa lub funkcja</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>dostęp pakietowy (brak specyfikatora)</td>
+<td>Wszystkie klasy w tym samym pakiecie</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>brak odpowiednika</td>
+<td>Konwencja <code>_</code>/<code>__</code> i tak niczego nie blokuje</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="question">
+<summary>Zadanie 4: Prześledź przykład C++</summary>
+<p>Spójrz na przykład klas <code>Konto</code> i <code>Bank</code> w C++ powyżej. Co by się stało, gdyby usunąć linijkę <code>friend class Bank;</code>? Który fragment kodu przestałby działać i dlaczego?</p>
+</details>
+<details class="question">
+<summary>Zadanie 5: Zaprojektuj sytuację wymagającą friend</summary>
+<p>Wymyśl własny przykład dwóch ściśle powiązanych klas (inny niż Konto/Bank), gdzie sensowne byłoby użycie <code>friend</code> w C++. Opisz, jakie dane jedna klasa musiałaby udostępnić drugiej i dlaczego zwykła hermetyzacja by tu przeszkadzała.</p>
+</details>
+<details class="question">
+<summary>Zadanie 6: Porównaj z dostępem pakietowym w Javie</summary>
+<p>Wyjaśnij własnymi słowami, dlaczego dostęp pakietowy w Javie <strong>nie jest</strong> pełnym odpowiednikiem <code>friend</code> z C++. Jaka jest kluczowa różnica w precyzji kontroli dostępu między tymi dwoma mechanizmami?</p>
+</details>
+<h2 id="zadania-utrwalajace">Zadania utrwalające</h2>
+<details class="question">
+<summary>Zadanie 7: Pytanie egzaminacyjne — destruktor</summary>
+<p>Wyjaśnij, czym jest destruktor, w jakim języku jest rzeczywiście potrzebny i dlaczego, oraz jak Python i Java radzą sobie bez jego pełnego odpowiednika.</p>
+</details>
+<details class="question">
+<summary>Zadanie 8: Pytanie egzaminacyjne — friend</summary>
+<p>Wyjaśnij, czym są klasy i funkcje zaprzyjaźnione w C++, do czego służą, oraz dlaczego nie mają odpowiednika ani w Pythonie, ani w Javie.</p>
+</details>
+<details class="question">
+<summary>Zadanie 9: Zastosuj <code>with</code> zamiast destruktora</summary>
+<p>Napisz klasę <code>Licznik</code>, która przy tworzeniu obiektu wypisuje <code>"Start"</code>, a Ty ręcznie (bez polegania na <code>__del__</code>) dodaj metodę <code>zakoncz()</code>, którą trzeba jawnie wywołać, żeby wypisała <code>"Koniec"</code>. Zapisz w komentarzu, dlaczego to podejście jest bardziej przewidywalne niż poleganie na <code>__del__</code>.</p>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Powrót do góry
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "content.code.copy", "toc.integrate"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
