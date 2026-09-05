@@ -56,5 +56,13 @@ nav:
       - Powtórka: podstawy-programowania/powtorka/index.md
   - ASO:
       - aso/index.md
-      - Klasa 2: aso/klasa-2/index.md
+      - Klasa 2:
+          - aso/klasa-2/index.md
+          - Wirtualizacja i instalacja systemów operacyjnych:
+              - aso/klasa-2/01-wirtualizacja-i-instalacja/index.md
+              - Czym jest wirtualizacja: aso/klasa-2/01-wirtualizacja-i-instalacja/01-czym-jest-wirtualizacja/index.md
+              - Planowanie instalacji: aso/klasa-2/01-wirtualizacja-i-instalacja/02-planowanie-instalacji/index.md
+              - Instalacja Windows: aso/klasa-2/01-wirtualizacja-i-instalacja/03-instalacja-windows/index.md
+              - Instalacja Linux: aso/klasa-2/01-wirtualizacja-i-instalacja/04-instalacja-linux/index.md
+              - Zadania utrwalające: aso/klasa-2/01-wirtualizacja-i-instalacja/05-zadania-utrwalajace/index.md
       - Klasa 3: aso/klasa-3/index.md
