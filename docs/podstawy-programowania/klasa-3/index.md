@@ -1,7 +1,3 @@
----
-hide:
-  - navigation
----
 
 # Klasa 3 — Podstawy Programowania
 
