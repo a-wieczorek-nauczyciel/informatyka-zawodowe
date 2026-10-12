@@ -51,70 +51,70 @@ Zanim zaczniesz pisać własne funkcje, upewnij się, że rozumiesz, jak działa
 ### Przewidź wynik
 
 ??? question "1. Co wypisze ten kod?"
-```python
+    ```python
     def podwoj(liczba):
         return liczba * 2
 
     wynik = podwoj(7)
     print(wynik)
-```
+    ```
     Zanim uruchomisz kod, zapisz na kartce, co Twoim zdaniem się wypisze. Dopiero potem sprawdź w Codespace, czy się zgadza.
 
 ??? question "2. Co wypisze ten kod?"
-```python
+    ```python
     def przywitaj(imie):
         print(f"Cześć, {imie}!")
 
     przywitaj("Ola")
     przywitaj("Kuba")
-```
+    ```
     Ile razy wykona się `print`? Co dokładnie się wypisze?
 
 ### Znajdź błąd
 
 ??? question "3. Ten kod nie działa — dlaczego?"
-```python
+    ```python
     def pole_kwadratu(bok):
         wynik = bok * bok
 
     print(pole_kwadratu(4))
-```
+    ```
     Kod się uruchomi bez błędu, ale wynik będzie zaskakujący. Jakiego słowa kluczowego brakuje i dlaczego to zmienia wynik?
 
 ??? question "4. Ten kod zgłasza błąd — dlaczego?"
-```python
+    ```python
     def pomnoz(a, b):
         return a * b
 
     wynik = pomnoz(5)
     print(wynik)
-```
+    ```
     Python zgłosi błąd przy wywołaniu funkcji. Co dokładnie jest nie tak?
 
 ### Dokończ kod
 
 ??? question "5. Uzupełnij brakujący fragment"
-```python
+    ```python
     def odejmij(a, b):
         wynik = ___
         return wynik
 
     print(odejmij(10, 3))  # ma wypisać 7
-```
+    ```
     Co powinno znaleźć się w miejscu `___`?
 
 ??? question "6. Uzupełnij wywołanie funkcji"
-```python
+    ```python
     def przedstaw_sie(imie, wiek):
         print(f"Mam na imię {imie} i mam {wiek} lat")
 
     ___  # wywołaj funkcję tak, żeby wypisała: "Mam na imię Adrian i mam 25 lat"
-```
+    ```
 
 ### Prześledź krok po kroku
 
 ??? question "7. Prześledź działanie krok po kroku"
-```python
+    ```python
     def krok(liczba):
         liczba = liczba + 1
         print(liczba)
@@ -124,7 +124,7 @@ Zanim zaczniesz pisać własne funkcje, upewnij się, że rozumiesz, jak działa
     x = krok(x)
     x = krok(x)
     print(x)
-```
+    ```
     Zapisz na kartce, co się wypisze **po kolei**, linijka po linijce — zanim uruchomisz kod. Ile razy wykona się `print` i jakie wartości pokaże?
 
 ## Zadania dodatkowe

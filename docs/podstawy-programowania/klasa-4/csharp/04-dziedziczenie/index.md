@@ -119,6 +119,12 @@ Odwrotnie nie wolno: nie każde zwierzę jest psem — `Pies p = new Zwierze(...
 ### protected
 
 ```csharp
+// Program.cs
+// Program.cs
+Pies p = new Pies("Burek");
+// p.energia = 500;                   // błąd: protected nie jest dostępne z zewnątrz
+
+// Zwierze.cs
 class Zwierze
 {
     protected int energia = 100;      // widoczne dla klas pochodnych
@@ -127,6 +133,7 @@ class Zwierze
     public Zwierze(string imie) { Imie = imie; }
 }
 
+// Pies.cs
 class Pies : Zwierze
 {
     public Pies(string imie) : base(imie) { }
@@ -137,10 +144,6 @@ class Pies : Zwierze
         Console.WriteLine($"{Imie} biega, energia: {energia}");
     }
 }
-
-// Program.cs
-Pies p = new Pies("Burek");
-// p.energia = 500;                   // błąd: protected nie jest dostępne z zewnątrz
 ```
 
 `protected` używamy oszczędnie. Lepiej, żeby klasa bazowa udostępniała klasom pochodnym metody pilnujące reguł niż surowe pola.
@@ -150,6 +153,12 @@ Pies p = new Pies("Burek");
 Przy tworzeniu obiektu klasy pochodnej **najpierw** wykonuje się konstruktor klasy bazowej, a **potem** pochodnej. Konstruktor bazowy wskazujemy przez `: base(...)`:
 
 ```csharp
+// Program.cs
+Kierownik k = new Kierownik("Nowak", 9000, 5);
+// konstruktor Pracownik
+// konstruktor Kierownik
+
+// Pracownik.cs
 class Pracownik
 {
     public string Nazwisko { get; }
@@ -163,6 +172,7 @@ class Pracownik
     }
 }
 
+// Kierownik.cs
 class Kierownik : Pracownik
 {
     public int LiczbaPodwladnych { get; }
@@ -173,10 +183,6 @@ class Kierownik : Pracownik
         Console.WriteLine("konstruktor Kierownik");
     }
 }
-
-Kierownik k = new Kierownik("Nowak", 9000, 5);
-// konstruktor Pracownik
-// konstruktor Kierownik
 ```
 
 Jeśli klasa bazowa **nie ma** konstruktora bezparametrowego, klasa pochodna **musi** wywołać `base(...)` z argumentami — inaczej błąd kompilacji `CS7036`.

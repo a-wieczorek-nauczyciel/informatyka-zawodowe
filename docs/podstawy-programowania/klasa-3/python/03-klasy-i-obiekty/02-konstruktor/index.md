@@ -22,14 +22,14 @@ W chwili wykonania `Pracownik("Kowalski", 4500)` Python sam wywołuje `__init__`
     Zdefiniuj klasę `Samochod` z konstruktorem przyjmującym `marka` i `rok_produkcji`. Stwórz jeden obiekt i wypisz oba pola.
 
 ??? question "Zadanie 2: Rozpoznaj wywołanie konstruktora"
-```python
+    ```python
     class Bilet:
         def __init__(self, numer_miejsca):
             self.numer_miejsca = numer_miejsca
 
     b1 = Bilet(14)
     b2 = Bilet(15)
-```
+    ```
     Ile razy zostanie wywołany konstruktor `__init__` w tym kodzie? Skąd to wiadomo?
 
 ## Instrukcje inicjujące — konstruktor to nie tylko przypisania
@@ -102,13 +102,15 @@ public class Pracownik {
         this.imie = inny.imie;
         this.pensja = inny.pensja;
     }
+
+    public static void main(String[] args) {
+        Pracownik p1 = new Pracownik("Kowalski", 4500);
+        Pracownik p2 = new Pracownik(p1);  // konstruktor kopiujący — NOWY obiekt
+
+        p2.pensja = 6000;
+        System.out.println(p1.pensja);  // nadal 4500.0 — p1 i p2 to różne obiekty
+    }
 }
-
-Pracownik p1 = new Pracownik("Kowalski", 4500);
-Pracownik p2 = new Pracownik(p1);  // konstruktor kopiujący — NOWY obiekt
-
-p2.pensja = 6000;
-System.out.println(p1.pensja);  // nadal 4500 — p1 i p2 to różne obiekty
 ```
 
 !!! tip "Dlaczego to jest ważne"

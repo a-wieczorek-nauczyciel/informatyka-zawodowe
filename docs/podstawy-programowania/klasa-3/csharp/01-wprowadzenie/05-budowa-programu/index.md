@@ -61,11 +61,24 @@ Obie wersje kompilują się do tego samego kodu. W tym dziale używamy krótszej
 
 **Przestrzeń nazw** to „nazwisko” typu. Pełna nazwa klasy `Console` to `System.Console`, a klasy `List<T>` — `System.Collections.Generic.List<T>`.
 
-```csharp
-System.Console.WriteLine("pełna nazwa");      // bez using
+Bez dyrektywy `using` podajemy pełną nazwę:
 
-using System.Text;                             // z using — na początku pliku
+```csharp
+System.Text.StringBuilder sb = new System.Text.StringBuilder();
+sb.Append("Ala ");
+sb.Append("ma kota");
+System.Console.WriteLine(sb.ToString());
+```
+
+Z dyrektywą `using` (zawsze na samym początku pliku) wystarczy krótka nazwa:
+
+```csharp
+using System.Text;
+
 StringBuilder sb = new StringBuilder();
+sb.Append("Ala ");
+sb.Append("ma kota");
+Console.WriteLine(sb.ToString());
 ```
 
 Dzięki ustawieniu `ImplicitUsings` w `.csproj` najczęstsze przestrzenie nazw są dołączone automatycznie (tzw. *global using*), dlatego w nowym projekcie nie widać żadnego `using`, a `Console` i `List<T>` działają od razu.

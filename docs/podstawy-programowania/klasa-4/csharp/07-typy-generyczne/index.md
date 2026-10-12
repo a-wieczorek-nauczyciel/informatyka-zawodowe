@@ -16,11 +16,13 @@ class PudelkoGracz  { public Gracz? Zawartosc; }
 Trzy razy ten sam kod. Można spróbować z `object`, który przyjmie wszystko:
 
 ```csharp
-class Pudelko { public object? Zawartosc; }
-
+// Program.cs
 Pudelko p = new Pudelko { Zawartosc = 42 };
 int x = (int)p.Zawartosc!;          // rzutowanie przy każdym odczycie
 string s = (string)p.Zawartosc!;    // skompiluje się, ale rzuci wyjątek w trakcie działania
+
+// Pudelko.cs
+class Pudelko { public object? Zawartosc; }
 ```
 
 Tracimy kontrolę typów — błąd wyjdzie dopiero podczas działania programu.
@@ -69,6 +71,11 @@ Typy generyczne pojawiły się w C# 2.0 (2005) właśnie po to, żeby kolekcje b
 ## Kilka parametrów typu
 
 ```csharp
+// Program.cs
+var wynik = new Para<string, int>("Ada", 95);
+var punkt = new Para<double, double>(1.5, -2);
+
+// Para.cs
 class Para<TPierwszy, TDrugi>
 {
     public TPierwszy Pierwszy { get; }
@@ -82,9 +89,6 @@ class Para<TPierwszy, TDrugi>
 
     public override string ToString() => $"({Pierwszy}, {Drugi})";
 }
-
-var wynik = new Para<string, int>("Ada", 95);
-var punkt = new Para<double, double>(1.5, -2);
 ```
 
 ## Metody generyczne
@@ -92,6 +96,16 @@ var punkt = new Para<double, double>(1.5, -2);
 Parametr typu może mieć też sama metoda — w zwykłej klasie:
 
 ```csharp
+// Program.cs
+int x = 1, y = 2;
+Narzedzia.Zamien(ref x, ref y);           // T = int, kompilator sam ustalił typ
+
+string s1 = "a", s2 = "b";
+Narzedzia.Zamien<string>(ref s1, ref s2); // typ można też podać jawnie
+
+Narzedzia.Wypisz(new List<string> { "chleb", "mleko" });
+
+// Narzedzia.cs
 static class Narzedzia
 {
     public static void Zamien<T>(ref T a, ref T b)
@@ -107,14 +121,6 @@ static class Narzedzia
             Console.WriteLine($"- {e}");
     }
 }
-
-int x = 1, y = 2;
-Narzedzia.Zamien(ref x, ref y);           // T = int, kompilator sam ustalił typ
-
-string s1 = "a", s2 = "b";
-Narzedzia.Zamien<string>(ref s1, ref s2); // typ można też podać jawnie
-
-Narzedzia.Wypisz(new List<string> { "chleb", "mleko" });
 ```
 
 Zwykle nie trzeba pisać `<int>` przy wywołaniu — kompilator wnioskuje typ z argumentów.
@@ -150,6 +156,12 @@ Najwiekszy(listaUczniow);                       // działa, jeśli Uczen : IComp
 Przykład z hierarchią klas:
 
 ```csharp
+// Program.cs
+var kola = new Kolekcja<Kolo>();
+kola.Dodaj(new Kolo(1));
+// kola.Dodaj(new Prostokat(1, 2));   // błąd — to kolekcja kół
+
+// Kolekcja.cs
 class Kolekcja<T> where T : Ksztalt
 {
     private readonly List<T> elementy = new();
@@ -163,10 +175,6 @@ class Kolekcja<T> where T : Ksztalt
         return s;
     }
 }
-
-var kola = new Kolekcja<Kolo>();
-kola.Dodaj(new Kolo(1));
-// kola.Dodaj(new Prostokat(1, 2));   // błąd — to kolekcja kół
 ```
 
 ## Typy generyczne a szablony C++

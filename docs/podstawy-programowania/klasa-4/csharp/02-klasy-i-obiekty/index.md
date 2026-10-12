@@ -250,6 +250,11 @@ Zasady:
 `this` to referencja do obiektu, na rzecz którego wykonuje się metoda lub konstruktor.
 
 ```csharp
+// Program.cs
+Punkt p = new Punkt(0, 0);
+p.Przesun(1, 2).Przesun(3, 4);    // wywołania łańcuchowe
+
+// Punkt.cs
 class Punkt
 {
     private int x;
@@ -275,9 +280,6 @@ class Punkt
         return Math.Sqrt(dx * dx + dy * dy);
     }
 }
-
-Punkt p = new Punkt(0, 0);
-p.Przesun(1, 2).Przesun(3, 4);    // wywołania łańcuchowe
 ```
 
 - w `this.x = x;` pole jest po lewej, parametr po prawej — `this` rozróżnia je, gdy mają tę samą nazwę,
@@ -289,6 +291,12 @@ p.Przesun(1, 2).Przesun(3, 4);    // wywołania łańcuchowe
 Każda klasa ma metodę `ToString()` odziedziczoną po klasie `object`. Domyślnie zwraca **nazwę typu**, co rzadko jest przydatne. Nadpisujemy ją słowem `override`:
 
 ```csharp
+// Program.cs
+Gracz g = new Gracz { Imie = "Ada", Punkty = 10 };
+Console.WriteLine(g);              // wywołuje g.ToString()
+Console.WriteLine($"Gracz {g}");   // interpolacja też wywołuje ToString()
+
+// Gracz.cs
 class Gracz
 {
     public string Imie = "";
@@ -299,10 +307,6 @@ class Gracz
         return $"{Imie}: {Punkty} pkt";
     }
 }
-
-Gracz g = new Gracz { Imie = "Ada", Punkty = 10 };
-Console.WriteLine(g);              // wywołuje g.ToString()
-Console.WriteLine($"Gracz {g}");   // interpolacja też wywołuje ToString()
 ```
 
 Słowo `override` i klasę `object` omówimy dokładnie przy dziedziczeniu.
@@ -310,6 +314,7 @@ Słowo `override` i klasę `object` omówimy dokładnie przy dziedziczeniu.
 ## Tablice i listy obiektów
 
 ```csharp
+// Program.cs
 List<Gracz> gracze = new List<Gracz>
 {
     new Gracz("Ada", 10),
@@ -328,6 +333,23 @@ foreach (Gracz g in gracze)
     if (g.Punkty > najlepszy.Punkty) najlepszy = g;
 }
 Console.WriteLine($"Prowadzi: {najlepszy}");
+
+// Gracz.cs
+class Gracz
+{
+    public string Imie;
+    public int Punkty;
+
+    public Gracz(string imie, int punkty)
+    {
+        Imie = imie;
+        Punkty = punkty;
+    }
+
+    public void DodajPunkty(int ile) => Punkty += ile;
+
+    public override string ToString() => $"{Imie}: {Punkty} pkt";
+}
 ```
 
 ## Zadania

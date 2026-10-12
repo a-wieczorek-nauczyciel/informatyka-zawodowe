@@ -115,15 +115,27 @@ Przedział sprawdzamy dwoma porównaniami: `x >= 1 && x <= 10`. Zapis `1 <= x <=
 **Obliczanie skrócone.** `&&` nie sprawdza drugiego warunku, jeśli pierwszy jest fałszywy; <code>&#124;&#124;</code> — jeśli pierwszy jest prawdziwy. To pozwala bezpiecznie pisać:
 
 ```csharp
-if (dzielnik != 0 && liczba / dzielnik > 2) { ... }
-if (tekst != null && tekst.Length > 0) { ... }
+int liczba = 10, dzielnik = 0;
+if (dzielnik != 0 && liczba / dzielnik > 2)     // przy dzielnik == 0 dzielenie się nie wykona
+{
+    Console.WriteLine("Iloraz większy niż 2");
+}
+
+string? tekst = Console.ReadLine();
+if (tekst != null && tekst.Length > 0)          // przy null nie odczytamy Length
+{
+    Console.WriteLine($"Wpisano {tekst.Length} znaków");
+}
 ```
 
 **Warunek w zmiennej.** Złożony warunek warto nazwać:
 
 ```csharp
 bool przestepny = (rok % 4 == 0 && rok % 100 != 0) || rok % 400 == 0;
-if (przestepny) { ... }
+if (przestepny)
+{
+    Console.WriteLine($"{rok} jest przestępny");
+}
 ```
 
 ## Porównywanie tekstów i znaków
@@ -134,18 +146,21 @@ Console.WriteLine(haslo == "tajne123");                                   // wie
 Console.WriteLine(haslo.Equals("tajne123", StringComparison.OrdinalIgnoreCase));  // bez rozróżniania
 
 string odp = (Console.ReadLine() ?? "").Trim().ToLower();
-if (odp == "tak" || odp == "t") { ... }
+if (odp == "tak" || odp == "t")
+{
+    Console.WriteLine("Potwierdzono.");
+}
 ```
 
 Klasa `char` ma metody do sprawdzania znaków:
 
 ```csharp
 char z = 'a';
-char.IsLetter(z)      // litera?
-char.IsDigit(z)       // cyfra?
-char.IsUpper(z)       // wielka litera?
-char.IsWhiteSpace(z)  // spacja, tabulator, nowa linia?
-char.ToUpper(z)       // 'A'
+Console.WriteLine(char.IsLetter(z));      // litera?
+Console.WriteLine(char.IsDigit(z));       // cyfra?
+Console.WriteLine(char.IsUpper(z));       // wielka litera?
+Console.WriteLine(char.IsWhiteSpace(z));  // spacja, tabulator, nowa linia?
+Console.WriteLine(char.ToUpper(z));       // A
 ```
 
 ## Operator warunkowy ?:

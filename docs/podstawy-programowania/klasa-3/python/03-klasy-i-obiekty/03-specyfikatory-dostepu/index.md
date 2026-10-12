@@ -95,12 +95,12 @@ class Silnik:
 
 ??? question "Zadanie 4: Popraw kod"
     Poniższy kod nie stosuje żadnej konwencji nazewniczej, mimo że jedno z pól powinno być traktowane jako wewnętrzne. Przepisz go, dodając odpowiedni podkreślnik tam, gdzie to sensowne, i uzasadnij wybór:
-```python
+    ```python
     class Zamek:
         def __init__(self, haslo):
             self.haslo = haslo
             self.otwarty = False
-```
+    ```
 
 ??? question "Zadanie 5: Zaprojektuj klasę z trzema poziomami"
     Zdefiniuj klasę `Serwer` z trzema polami: `nazwa` (publiczne), `_status` (chronione konwencją), `__haslo_admina` (prywatne, dwa podkreślniki). Dodaj metodę `zmien_haslo(nowe_haslo)`, która jako jedyna może zmieniać `__haslo_admina`. Przetestuj dostęp do wszystkich trzech pól z zewnątrz klasy i zapisz, co zadziałało bez problemu, a co wymagało przejścia przez metodę.

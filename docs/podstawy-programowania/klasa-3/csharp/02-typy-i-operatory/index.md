@@ -268,22 +268,22 @@ Console.WriteLine($"|{"ab",6}|{"cd",-6}|");   // wyrównanie do prawej i lewej
 ## Przydatne klasy: Math i string
 
 ```csharp
-Math.Abs(-5)          // 5
-Math.Pow(2, 10)       // 1024
-Math.Sqrt(16)         // 4
-Math.Round(2.567, 2)  // 2.57
-Math.Max(3, 8)        // 8
-Math.PI               // 3.14159…
+Console.WriteLine(Math.Abs(-5));          // 5
+Console.WriteLine(Math.Pow(2, 10));       // 1024
+Console.WriteLine(Math.Sqrt(16));         // 4
+Console.WriteLine(Math.Round(2.567, 2));  // 2,57 (separator zależy od ustawień systemu)
+Console.WriteLine(Math.Max(3, 8));        // 8
+Console.WriteLine(Math.PI);               // 3,141592653589793
 
 string s = "  Programowanie  ";
-s.Trim()              // bez spacji na brzegach
-s.ToUpper()           // wielkie litery
-s.Length              // liczba znaków
-s.Contains("gram")    // true
-s.Replace("a", "@")   // zamiana
-s.Substring(2, 7)     // fragment od indeksu 2, długość 7
-s[2]                  // znak na pozycji 2 (typ char)
-string.IsNullOrWhiteSpace(s)   // czy tekst jest pusty lub z samych spacji
+Console.WriteLine(s.Trim());              // "Programowanie" — bez spacji na brzegach
+Console.WriteLine(s.ToUpper());           // wielkie litery
+Console.WriteLine(s.Length);              // 17 — liczba znaków razem ze spacjami
+Console.WriteLine(s.Contains("gram"));    // True
+Console.WriteLine(s.Replace("a", "@"));   // zamiana każdego "a" na "@"
+Console.WriteLine(s.Substring(2, 7));     // "Program" — od indeksu 2, długość 7
+Console.WriteLine(s[2]);                  // P — znak na pozycji 2 (typ char)
+Console.WriteLine(string.IsNullOrWhiteSpace(s));   // False — tekst nie jest pusty
 ```
 
 ## Zadania

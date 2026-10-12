@@ -30,13 +30,13 @@ Za każdym razem, gdy tworzysz nowego `Uczen`, konstruktor zwiększa `liczba_ucz
     Zdefiniuj klasę `Ksiazka` z polem statycznym `liczba_ksiazek` (start od 0), zwiększanym w konstruktorze przy każdym nowym obiekcie. Stwórz cztery obiekty i wypisz `Ksiazka.liczba_ksiazek`.
 
 ??? question "Zadanie 2: Rozpoznaj typ pola"
-```python
+    ```python
     class Samochod:
         liczba_kol = 4
 
         def __init__(self, marka):
             self.marka = marka
-```
+    ```
     Które pole jest statyczne, a które zwykłe? Uzasadnij, powołując się na to, gdzie zostało zdefiniowane.
 
 ## Pułapka: modyfikacja pola statycznego przez obiekt

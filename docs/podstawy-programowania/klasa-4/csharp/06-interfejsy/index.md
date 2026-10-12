@@ -104,6 +104,17 @@ if (uzdrowiciel is IAtakujacy a)
 `List<T>.Sort()` musi wiedzieć, jak porównać dwa obiekty. Liczby i teksty to wiedzą; własne klasy — nie. Uczymy je, implementując `IComparable<T>`:
 
 ```csharp
+// Program.cs
+List<Uczen> klasa = new()
+{
+    new Uczen("Nowak", 4.2),
+    new Uczen("Kowalska", 5.1),
+    new Uczen("Lis", 3.8)
+};
+klasa.Sort();                       // korzysta z CompareTo
+klasa.ForEach(Console.WriteLine);
+
+// Uczen.cs
 class Uczen : IComparable<Uczen>
 {
     public string Nazwisko { get; }
@@ -124,15 +135,6 @@ class Uczen : IComparable<Uczen>
 
     public override string ToString() => $"{Nazwisko} ({Srednia:F2})";
 }
-
-List<Uczen> klasa = new()
-{
-    new Uczen("Nowak", 4.2),
-    new Uczen("Kowalska", 5.1),
-    new Uczen("Lis", 3.8)
-};
-klasa.Sort();                       // korzysta z CompareTo
-klasa.ForEach(Console.WriteLine);
 ```
 
 ### Inne często spotykane interfejsy

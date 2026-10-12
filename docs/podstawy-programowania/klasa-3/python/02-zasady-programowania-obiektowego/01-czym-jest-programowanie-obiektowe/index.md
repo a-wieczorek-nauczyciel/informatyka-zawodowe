@@ -61,7 +61,7 @@ OOP nie zawsze jest potrzebne. Prosty skrypt liczący pole trójkąta nie potrze
 ### Rozpoznaj podejście
 
 ??? question "1. Proceduralne czy obiektowe?"
-```python
+    ```python
     imie_psa = "Reksio"
     rasa_psa = "Labrador"
 
@@ -69,11 +69,11 @@ OOP nie zawsze jest potrzebne. Prosty skrypt liczący pole trójkąta nie potrze
         print(f"{imie} to {rasa}")
 
     przedstaw_psa(imie_psa, rasa_psa)
-```
+    ```
     Czy ten kod jest napisany w podejściu proceduralnym, czy obiektowym? Po czym to poznajesz?
 
 ??? question "2. Proceduralne czy obiektowe?"
-```python
+    ```python
     class Pies:
         def __init__(self, imie, rasa):
             self.imie = imie
@@ -84,7 +84,7 @@ OOP nie zawsze jest potrzebne. Prosty skrypt liczący pole trójkąta nie potrze
 
     reksio = Pies("Reksio", "Labrador")
     reksio.przedstaw_sie()
-```
+    ```
     A ten? Co dokładnie się zmieniło względem poprzedniego przykładu?
 
 ### Zidentyfikuj kandydatów na obiekty

@@ -14,7 +14,7 @@ List<Ksztalt> ksztalty = new()
 {
     new Kolo(2),
     new Prostokat(3, 4),
-    new Trojkat(3, 4)
+    new Trojkat(3, 4, 5)
 };
 
 foreach (Ksztalt k in ksztalty)
@@ -44,6 +44,7 @@ class Pies : Zwierze
 {
     public Pies(string imie) : base(imie) { }
     public override string DajGlos() => "Hau!";
+    public void Aportuj() => Console.WriteLine($"{Imie} przynosi patyk");   // tylko w klasie Pies
 }
 
 // Kot.cs
@@ -149,28 +150,34 @@ Zwróć uwagę na `ToString()` w klasie `Ksztalt`: jest napisana raz, a korzysta
 
 ## Sprawdzanie typu: is, as, wzorce
 
-Czasem trzeba wiedzieć, jakiej klasy jest obiekt, np. żeby wywołać metodę dostępną tylko w klasie pochodnej (tu: `Aportuj` i `Rasa` z klasy `Pies` z poprzedniej lekcji).
+Czasem trzeba wiedzieć, jakiej klasy jest obiekt, np. żeby wywołać metodę dostępną tylko w klasie pochodnej (tu: `Aportuj` z klasy `Pies`).
 
 ```csharp
+// Program.cs — korzysta z klas Zwierze, Pies i Kot z początku lekcji
+List<Zwierze> zwierzeta = new() { new Pies("Burek"), new Kot("Filemon") };
+
 foreach (Zwierze z in zwierzeta)
 {
-    if (z is Pies p)              // czy z jest Psem? jeśli tak — zmienna p typu Pies
+    if (z is Pies p)                  // czy z jest Psem? jeśli tak — zmienna p typu Pies
     {
         p.Aportuj();
     }
 }
 
-Pies? pies = z as Pies;           // as: rzutowanie albo null, gdy się nie da
+Zwierze pierwsze = zwierzeta[0];
+
+Pies? pies = pierwsze as Pies;        // as: rzutowanie albo null, gdy się nie da
 if (pies != null) pies.Aportuj();
 
-Pies pewny = (Pies)z;             // rzutowanie jawne: wyjątek InvalidCastException, gdy z nie jest Psem
+Pies pewny = (Pies)pierwsze;          // rzutowanie jawne: wyjątek InvalidCastException, gdy obiekt nie jest Psem
 
-string opis = z switch
+string opis = pierwsze switch
 {
-    Pies p => $"pies rasy {p.Rasa}",
+    Pies pp => $"pies {pp.Imie}",
     Kot => "kot",
     _ => "inne zwierzę"
 };
+Console.WriteLine(opis);
 ```
 
 !!! tip "Polimorfizm zamiast sprawdzania typów"
@@ -181,21 +188,24 @@ string opis = z switch
 Metodę o tej samej sygnaturze można też **ukryć** słowem `new`. Wtedy wybór wersji zależy od typu **zmiennej**, a nie obiektu — polimorfizm nie działa.
 
 ```csharp
+// Program.cs
+A x = new B();
+Console.WriteLine(x.Wirtualna());   // B — decyduje typ obiektu
+Console.WriteLine(x.Zwykla());      // A — decyduje typ zmiennej
+
+// A.cs
 class A
 {
     public virtual string Wirtualna() => "A";
     public string Zwykla() => "A";
 }
 
+// B.cs
 class B : A
 {
     public override string Wirtualna() => "B";
     public new string Zwykla() => "B";
 }
-
-A x = new B();
-Console.WriteLine(x.Wirtualna());   // B — decyduje typ obiektu
-Console.WriteLine(x.Zwykla());      // A — decyduje typ zmiennej
 ```
 
 `new` przy metodzie stosuje się rzadko, zwykle gdy nie możemy zmienić klasy bazowej. Jeśli w klasie pochodnej napiszesz metodę o tej samej nazwie bez `override` i bez `new`, kompilator ostrzeże (`CS0108`) — najczęściej oznacza to zapomniane `virtual` / `override`.
@@ -207,7 +217,14 @@ Metodę nadpisaną można zablokować przed dalszym nadpisywaniem:
 ```csharp
 class Kierownik : Pracownik
 {
-    public sealed override decimal Wyplata() => Pensja + Dodatek;
+    public decimal Dodatek { get; }
+
+    public Kierownik(string nazwisko, decimal pensja, decimal dodatek) : base(nazwisko, pensja)
+    {
+        Dodatek = dodatek;
+    }
+
+    public sealed override decimal Wyplata() => Pensja + Dodatek;   // klasa pochodna Kierownika nie może już tego zmienić
 }
 ```
 
@@ -232,20 +249,24 @@ class Kierownik : Pracownik
     Przewidź, a potem sprawdź wyniki. Wyjaśnij każdy.
 
     ```csharp
+    // Program.cs
+    Bazowa b = new Pochodna();
+    Console.WriteLine(b.Kto());
+    Console.WriteLine(b.Przedstaw());
+    Console.WriteLine(new Bazowa().Przedstaw());
+
+    // Bazowa.cs
     class Bazowa
     {
         public virtual string Kto() => "bazowa";
         public string Przedstaw() => $"Jestem {Kto()}";
     }
+
+    // Pochodna.cs
     class Pochodna : Bazowa
     {
         public override string Kto() => "pochodna";
     }
-
-    Bazowa b = new Pochodna();
-    Console.WriteLine(b.Kto());
-    Console.WriteLine(b.Przedstaw());
-    Console.WriteLine(new Bazowa().Przedstaw());
     ```
 
 ??? question "Zadanie 5: Zoo"

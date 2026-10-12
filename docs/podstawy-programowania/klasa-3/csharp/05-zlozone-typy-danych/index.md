@@ -157,7 +157,10 @@ stan.Add("śliwki", 30);       // Add zgłosi wyjątek, jeśli klucz już istnie
 
 Console.WriteLine(stan["jabłka"]);    // 12
 
-if (stan.ContainsKey("banany")) { ... }
+if (stan.ContainsKey("banany"))
+{
+    Console.WriteLine("Banany są w magazynie.");
+}
 
 if (stan.TryGetValue("gruszki", out int ile))
 {

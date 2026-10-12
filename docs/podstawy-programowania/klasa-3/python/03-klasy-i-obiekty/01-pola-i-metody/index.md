@@ -21,12 +21,12 @@ class Rower:
     Zdefiniuj klasę `Telefon` z polami `model` i `pojemnosc_pamieci`. Nie dodawaj jeszcze żadnych metod.
 
 ??? question "Zadanie 2: Rozpoznaj pola w kodzie"
-```python
+    ```python
     class Bilet:
         def __init__(self, numer_miejsca, cena):
             self.numer_miejsca = numer_miejsca
             self.cena = cena
-```
+    ```
     Ile pól ma klasa `Bilet`? Jak się nazywają?
 
 ## Tworzenie obiektów (instancji)

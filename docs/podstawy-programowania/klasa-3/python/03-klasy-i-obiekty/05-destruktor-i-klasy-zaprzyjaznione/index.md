@@ -29,11 +29,11 @@ public:
 !!! info "Jak to wygląda w Javie"
     Java **nie ma prawdziwego destruktora**. Kiedyś istniała metoda `finalize()`, wywoływana (niegwarantowanie, kiedy dokładnie) przed usunięciem obiektu przez garbage collector — ale została uznana za zawodną i **usunięta w nowszych wersjach Javy**. Współczesna Java rozwiązuje problem "posprzątania po sobie" inaczej — przez mechanizm `try-with-resources` i interfejs `AutoCloseable`, gdzie programista jawnie definiuje metodę `close()` i sam decyduje, kiedy ją wywołać (albo robi to automatycznie blok `try-with-resources`), zamiast polegać na niepewnym momencie działania garbage collectora.
 
-```java
+    ```java
     try (Plik plik = new Plik("dane.txt")) {
         // praca z plikiem
     } // automatyczne wywołanie plik.close() na końcu bloku
-```
+    ```
 
 ### `__del__` w Pythonie — istnieje, ale prawie nikt go nie używa
 
@@ -54,11 +54,11 @@ del plik  # wymusza usunięcie obiektu, wywołuje __del__
 
 !!! warning "Dlaczego `__del__` jest rzadko używany w praktyce"
     Podobnie jak Javowe `finalize()`, moment wywołania `__del__` **nie jest gwarantowany** — Python decyduje, kiedy dokładnie usunąć obiekt z pamięci, i nie zawsze da się to precyzyjnie przewidzieć. Do "sprzątania" zasobów (zamykania plików, połączeń) standardowo używa się w Pythonie instrukcji `with`, działającej na tej samej zasadzie co Javowe `try-with-resources`:
-```python
+    ```python
     with open("dane.txt") as plik:
         zawartosc = plik.read()
     # plik zostaje zamknięty automatycznie na końcu bloku with
-```
+    ```
 
 !!! tip "Podsumowanie"
     Trzy języki, trzy podejścia: **C++** wymaga jawnego destruktora, bo programista sam zarządza pamięcią. **Java** kiedyś miała `finalize()`, dziś zaleca `try-with-resources`. **Python** ma `__del__`, ale w praktyce też zaleca się `with`. Wspólny mianownik: nowoczesny kod (Java, Python) **unika polegania na destruktorze** i zamiast tego jawnie zamyka zasoby w kontrolowanym momencie.

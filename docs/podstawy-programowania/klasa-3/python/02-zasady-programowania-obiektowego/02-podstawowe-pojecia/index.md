@@ -21,13 +21,13 @@ To najprostsza możliwa klasa — na razie pusta, ale już zdefiniowana pod nazw
     Zdefiniuj pustą klasę `Zwierze` (samo `class Zwierze: pass`, bez żadnych pól ani metod). Uruchom kod, żeby upewnić się, że nie ma błędów składniowych.
 
 ??? question "Zadanie 2: Rozpoznaj klasę w kodzie"
-```python
+    ```python
     class KontoBankowe:
         pass
 
     class Ksiazka:
         pass
-```
+    ```
     Ile klas jest zdefiniowanych w tym fragmencie kodu? Wypisz ich nazwy.
 
 ## Obiekt
@@ -48,14 +48,14 @@ pojazd2 = Pojazd()
     Korzystając z klasy `Zwierze` z zadania 1, stwórz trzy osobne obiekty: `zwierze1`, `zwierze2`, `zwierze3`. Sprawdź w kodzie (np. przez `print(zwierze1 == zwierze2)`), że to różne obiekty, mimo że pochodzą z tej samej klasy.
 
 ??? question "Zadanie 4: Ile obiektów?"
-```python
+    ```python
     class Ksiazka:
         pass
 
     ksiazka1 = Ksiazka()
     ksiazka2 = Ksiazka()
     ksiazka3 = Ksiazka()
-```
+    ```
     Ile klas jest w tym kodzie, a ile obiektów? Wyjaśnij różnicę własnymi słowami.
 
 ## Pole
@@ -77,12 +77,12 @@ print(auto.predkosc_max)
     Rozbuduj klasę `Zwierze` tak, żeby miała pola `gatunek` i `wiek` (skorzystaj ze składni z przykładu powyżej, nawet jeśli `__init__` nie jest jeszcze w pełni omówione — potraktuj to jako wzór do naśladowania). Stwórz jeden obiekt i wypisz oba pola.
 
 ??? question "Zadanie 6: Znajdź pola w kodzie"
-```python
+    ```python
     class Uczen:
         def __init__(self, imie, klasa):
             self.imie = imie
             self.klasa = klasa
-```
+    ```
     Jakie pola ma klasa `Uczen`? Wypisz ich nazwy.
 
 ## Metoda
@@ -106,7 +106,7 @@ auto.opisz()
     Dodaj do klasy `Zwierze` (z pól `gatunek` i `wiek`) metodę `opisz()`, która wypisuje zdanie w stylu `"To jest pies w wieku 3 lat"`. Wywołaj ją.
 
 ??? question "Zadanie 8: Pole czy metoda?"
-```python
+    ```python
     class Telefon:
         def __init__(self, model, pojemnosc_baterii):
             self.model = model
@@ -114,7 +114,7 @@ auto.opisz()
 
         def wlacz(self):
             print(f"{self.model} się włącza")
-```
+    ```
     Które elementy tej klasy to pola, a które to metody? Wypisz je w dwóch osobnych listach.
 
 ## Dziedziczenie
@@ -142,7 +142,7 @@ moto.klaksonuj()   # własne, tylko w Motocykl
     Zdefiniuj klasę bazową `Zwierze` z polem `imie` i metodą `wydaj_dzwiek()` (wypisującą np. `"..."`). Następnie zdefiniuj klasę pochodną `Pies(Zwierze)`, która dodaje własną metodę `aportuj()`. Stwórz obiekt klasy `Pies` i wywołaj obie metody — jedną odziedziczoną, jedną własną.
 
 ??? question "Zadanie 10: Co zostało odziedziczone?"
-```python
+    ```python
     class Ksztalt:
         def __init__(self, kolor):
             self.kolor = kolor
@@ -155,7 +155,7 @@ moto.klaksonuj()   # własne, tylko w Motocykl
             return 3.14 * promien * promien
 
     kolo1 = Kolo("czerwony")
-```
+    ```
     Czy `kolo1.opisz_kolor()` zadziała, mimo że metoda `opisz_kolor` jest zdefiniowana w klasie `Ksztalt`, a nie `Kolo`? Uzasadnij.
 
 ## Hermetyzacja
@@ -227,7 +227,7 @@ Pętla wywołuje `wydaj_dzwiek()` na każdym obiekcie, nie sprawdzając, czy to 
 | Polimorfizm | Ta sama nazwa metody, różne działanie w różnych klasach |
 
 ??? question "Zadanie podsumowujące: znajdź wszystko w jednym miejscu"
-```python
+    ```python
     class Pracownik:
         def __init__(self, imie, pensja):
             self.imie = imie
@@ -242,5 +242,5 @@ Pętla wywołuje `wydaj_dzwiek()` na każdym obiekcie, nie sprawdzając, czy to 
     class Kierownik(Pracownik):
         def przedstaw_sie(self):
             print(f"Jestem kierownikiem, nazywam się {self.imie}")
-```
+    ```
     Wskaż w tym kodzie: klasę bazową, klasę pochodną, przykład dziedziczenia, przykład hermetyzacji (konwencji) i przykład polimorfizmu (podpowiedź: porównaj metodę `przedstaw_sie` w obu klasach).

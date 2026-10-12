@@ -6,13 +6,15 @@
 ## Problem: każdy może wszystko
 
 ```csharp
+// Program.cs
+Konto k = new Konto();
+k.Saldo = -1000;   // kto to sprawdzi?
+
+// Konto.cs
 class Konto
 {
     public decimal Saldo;
 }
-
-Konto k = new Konto();
-k.Saldo = -1000;   // kto to sprawdzi?
 ```
 
 Gdy pole jest publiczne, każdy fragment programu może wpisać do niego dowolną wartość. Reguła „saldo nie może być ujemne” musiałaby być sprawdzana w każdym miejscu, które zmienia saldo — a wystarczy jedno przeoczenie.
@@ -35,6 +37,12 @@ Gdy pole jest publiczne, każdy fragment programu może wpisać do niego dowoln�
 **Zasada:** zaczynaj od `private` i otwieraj tylko to, co musi być dostępne z zewnątrz. Odwrotnie jest trudniej — ujawnioną składową ktoś zdąży użyć.
 
 ```csharp
+// Program.cs
+Konto k = new Konto();
+k.Wplac(100);
+// k.saldo = -1000;   // błąd CS0122: 'saldo' jest niedostępne
+
+// Konto.cs
 class Konto
 {
     private decimal saldo;              // ukryte
@@ -51,10 +59,6 @@ class Konto
         return true;
     }
 }
-
-Konto k = new Konto();
-k.Wplac(100);
-// k.saldo = -1000;   // błąd CS0122: 'saldo' jest niedostępne
 ```
 
 ## Właściwości
@@ -64,6 +68,13 @@ Metody `PobierzSaldo` / `UstawSaldo` działają, ale są niewygodne. W C# do kon
 ### Właściwość z polem i walidacją
 
 ```csharp
+// Program.cs
+Produkt p = new Produkt();
+p.Cena = 19.99m;      // wywołuje set z value = 19.99
+p.Cena = -5;          // set odrzuca wartość
+Console.WriteLine(p.Cena);   // wywołuje get
+
+// Produkt.cs
 class Produkt
 {
     private decimal cena;
@@ -80,11 +91,6 @@ class Produkt
         }
     }
 }
-
-Produkt p = new Produkt();
-p.Cena = 19.99m;      // wywołuje set z value = 19.99
-p.Cena = -5;          // set odrzuca wartość
-Console.WriteLine(p.Cena);   // wywołuje get
 ```
 
 ### Właściwość automatyczna

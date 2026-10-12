@@ -129,8 +129,10 @@ nav:
               - Lekcja 2 — Pomoc, pliki, aliasy, parametry: aso/klasa-2/05-powershell/02-pomoc-pliki-aliasy-parametry/index.md
               - Lekcja 3 — Bezpieczeństwo i potok: aso/klasa-2/05-powershell/03-bezpieczenstwo-i-potok/index.md
               - Lekcja 4 — Dane i skrypty: aso/klasa-2/05-powershell/04-dane-i-skrypty/index.md
-              - Mini-zadania 1–9: aso/klasa-2/05-powershell/05-mini-zadania/index.md
-              - Zadania utrwalające: aso/klasa-2/05-powershell/06-zadania-utrwalajace/index.md
+              - Lekcja 5 — Pliki wsadowe (.bat): aso/klasa-2/05-powershell/05-pliki-wsadowe/index.md
+              - Lekcja 6 — Parametry, switch i obliczenia: aso/klasa-2/05-powershell/06-parametry-switch-obliczenia/index.md
+              - Mini-zadania 1–9: aso/klasa-2/05-powershell/07-mini-zadania/index.md
+              - Zadania utrwalające: aso/klasa-2/05-powershell/08-zadania-utrwalajace/index.md
           - Zabezpieczenia i kopie:
               - aso/klasa-2/06-zabezpieczenia-i-kopie/index.md
               - Antywirus i zapora: aso/klasa-2/06-zabezpieczenia-i-kopie/01-antywirus-i-zapora/index.md
