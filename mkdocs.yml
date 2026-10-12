@@ -25,6 +25,9 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.keys
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.emoji:
@@ -36,25 +39,36 @@ nav:
       - podstawy-programowania/index.md
       - Klasa 3:
           - podstawy-programowania/klasa-3/index.md
-          - Funkcje. Funkcje biblioteczne:
-              - podstawy-programowania/klasa-3/01-funkcje/index.md
-              - Czym jest funkcja: podstawy-programowania/klasa-3/01-funkcje/01-czym-jest-funkcja/index.md
-              - Parametry i argumenty: podstawy-programowania/klasa-3/01-funkcje/02-parametry-i-argumenty/index.md
-              - Moduły i biblioteki: podstawy-programowania/klasa-3/01-funkcje/03-moduly-i-biblioteki/index.md
-              - Zadania utrwalające: podstawy-programowania/klasa-3/01-funkcje/04-zadania-utrwalajace/index.md
-          - Zasady programowania obiektowego:
-              - podstawy-programowania/klasa-3/02-zasady-programowania-obiektowego/index.md
-              - Czym jest programowanie obiektowe: podstawy-programowania/klasa-3/02-zasady-programowania-obiektowego/01-czym-jest-programowanie-obiektowe/index.md
-              - Podstawowe pojęcia: podstawy-programowania/klasa-3/02-zasady-programowania-obiektowego/02-podstawowe-pojecia/index.md
-              - Zadania utrwalające: podstawy-programowania/klasa-3/02-zasady-programowania-obiektowego/03-zadania-utrwalajace/index.md
-          - Klasy i obiekty:
-              - podstawy-programowania/klasa-3/03-klasy-i-obiekty/index.md
-              - Pola i metody: podstawy-programowania/klasa-3/03-klasy-i-obiekty/01-pola-i-metody/index.md
-              - Konstruktor: podstawy-programowania/klasa-3/03-klasy-i-obiekty/02-konstruktor/index.md
-              - Specyfikatory dostępu: podstawy-programowania/klasa-3/03-klasy-i-obiekty/03-specyfikatory-dostepu/index.md
-              - Składniki statyczne: podstawy-programowania/klasa-3/03-klasy-i-obiekty/04-skladniki-statyczne/index.md
-              - Destruktor i klasy zaprzyjaźnione: podstawy-programowania/klasa-3/03-klasy-i-obiekty/05-destruktor-i-klasy-zaprzyjaznione/index.md
-              - Zadania utrwalające: podstawy-programowania/klasa-3/03-klasy-i-obiekty/06-zadania-utrwalajace/index.md
+          - Python:
+              - podstawy-programowania/klasa-3/python/index.md
+              - Funkcje. Funkcje biblioteczne:
+                  - podstawy-programowania/klasa-3/python/01-funkcje/index.md
+                  - Czym jest funkcja: podstawy-programowania/klasa-3/python/01-funkcje/01-czym-jest-funkcja/index.md
+                  - Parametry i argumenty: podstawy-programowania/klasa-3/python/01-funkcje/02-parametry-i-argumenty/index.md
+                  - Moduły i biblioteki: podstawy-programowania/klasa-3/python/01-funkcje/03-moduly-i-biblioteki/index.md
+                  - Zadania utrwalające: podstawy-programowania/klasa-3/python/01-funkcje/04-zadania-utrwalajace/index.md
+              - Zasady programowania obiektowego:
+                  - podstawy-programowania/klasa-3/python/02-zasady-programowania-obiektowego/index.md
+                  - Czym jest programowanie obiektowe: podstawy-programowania/klasa-3/python/02-zasady-programowania-obiektowego/01-czym-jest-programowanie-obiektowe/index.md
+                  - Podstawowe pojęcia: podstawy-programowania/klasa-3/python/02-zasady-programowania-obiektowego/02-podstawowe-pojecia/index.md
+                  - Zadania utrwalające: podstawy-programowania/klasa-3/python/02-zasady-programowania-obiektowego/03-zadania-utrwalajace/index.md
+              - Klasy i obiekty:
+                  - podstawy-programowania/klasa-3/python/03-klasy-i-obiekty/index.md
+                  - Pola i metody: podstawy-programowania/klasa-3/python/03-klasy-i-obiekty/01-pola-i-metody/index.md
+                  - Konstruktor: podstawy-programowania/klasa-3/python/03-klasy-i-obiekty/02-konstruktor/index.md
+                  - Specyfikatory dostępu: podstawy-programowania/klasa-3/python/03-klasy-i-obiekty/03-specyfikatory-dostepu/index.md
+                  - Składniki statyczne: podstawy-programowania/klasa-3/python/03-klasy-i-obiekty/04-skladniki-statyczne/index.md
+                  - Destruktor i klasy zaprzyjaźnione: podstawy-programowania/klasa-3/python/03-klasy-i-obiekty/05-destruktor-i-klasy-zaprzyjaznione/index.md
+                  - Zadania utrwalające: podstawy-programowania/klasa-3/python/03-klasy-i-obiekty/06-zadania-utrwalajace/index.md
+          - C#:
+              - podstawy-programowania/klasa-3/csharp/index.md
+              - "Wprowadzenie: od Pythona do C#": podstawy-programowania/klasa-3/csharp/01-wprowadzenie/index.md
+              - Typy, operatory, wejście i wyjście: podstawy-programowania/klasa-3/csharp/02-typy-i-operatory/index.md
+              - Instrukcje warunkowe: podstawy-programowania/klasa-3/csharp/03-instrukcje-warunkowe/index.md
+              - Pętle: podstawy-programowania/klasa-3/csharp/04-petle/index.md
+              - Tablice i listy: podstawy-programowania/klasa-3/csharp/05-tablice-i-listy/index.md
+              - Metody: podstawy-programowania/klasa-3/csharp/06-metody/index.md
+              - Zadania utrwalające: podstawy-programowania/klasa-3/csharp/07-zadania-utrwalajace/index.md
       - Klasa 4: podstawy-programowania/klasa-4/index.md
       - Powtórka: podstawy-programowania/powtorka/index.md
   - ASO:
@@ -68,13 +82,39 @@ nav:
               - Instalacja Windows: aso/klasa-2/01-wirtualizacja-i-instalacja/03-instalacja-windows/index.md
               - Instalacja Linux: aso/klasa-2/01-wirtualizacja-i-instalacja/04-instalacja-linux/index.md
               - Zadania utrwalające: aso/klasa-2/01-wirtualizacja-i-instalacja/05-zadania-utrwalajace/index.md
+          - Konfiguracja systemu Windows:
+              - aso/klasa-2/02-konfiguracja-windows/index.md
+              - Interfejs sieciowy i diagnostyka: aso/klasa-2/02-konfiguracja-windows/01-interfejs-sieciowy/index.md
+              - Udostępnianie internetu: aso/klasa-2/02-konfiguracja-windows/02-udostepnianie-internetu/index.md
+              - Personalizacja: aso/klasa-2/02-konfiguracja-windows/03-personalizacja/index.md
+              - Narzędzia administracyjne: aso/klasa-2/02-konfiguracja-windows/04-narzedzia-administracyjne/index.md
+              - Zadania utrwalające: aso/klasa-2/02-konfiguracja-windows/05-zadania-utrwalajace/index.md
+          - Konta i grupy lokalne:
+              - aso/klasa-2/03-konta-i-grupy/index.md
+              - Konta i grupy lokalne: aso/klasa-2/03-konta-i-grupy/01-konta-i-grupy-lokalne/index.md
+              - Profile użytkowników: aso/klasa-2/03-konta-i-grupy/02-profile-uzytkownikow/index.md
+              - Prawa, przywileje i przydziały: aso/klasa-2/03-konta-i-grupy/03-prawa-i-przydzialy/index.md
+              - Zadania utrwalające: aso/klasa-2/03-konta-i-grupy/04-zadania-utrwalajace/index.md
+          - Zabezpieczanie zasobów:
+              - aso/klasa-2/04-zabezpieczanie-zasobow/index.md
+              - Uprawnienia NTFS: aso/klasa-2/04-zabezpieczanie-zasobow/01-uprawnienia-ntfs/index.md
+              - icacls: aso/klasa-2/04-zabezpieczanie-zasobow/02-icacls/index.md
+              - Udostępnianie zasobów: aso/klasa-2/04-zabezpieczanie-zasobow/03-udostepnianie-zasobow/index.md
+              - Zasady zabezpieczeń: aso/klasa-2/04-zabezpieczanie-zasobow/04-zasady-zabezpieczen/index.md
+              - Zadania utrwalające: aso/klasa-2/04-zabezpieczanie-zasobow/05-zadania-utrwalajace/index.md
           - PowerShell:
-              - aso/klasa-2/02-powershell/index.md
-              - Wprowadzenie do PowerShell: aso/klasa-2/02-powershell/01-wprowadzenie/index.md
-              - Potok i obiekty: aso/klasa-2/02-powershell/02-potok-i-obiekty/index.md
-              - Pliki, użytkownicy, usługi: aso/klasa-2/02-powershell/03-administracja/index.md
-              - Pierwsze skrypty: aso/klasa-2/02-powershell/04-skrypty/index.md
-              - Zadania utrwalające: aso/klasa-2/02-powershell/05-zadania-utrwalajace/index.md
+              - aso/klasa-2/05-powershell/index.md
+              - Lekcja 1 — Czym jest powłoka: aso/klasa-2/05-powershell/01-czym-jest-powloka/index.md
+              - Lekcja 2 — Pomoc, pliki, aliasy, parametry: aso/klasa-2/05-powershell/02-pomoc-pliki-aliasy-parametry/index.md
+              - Lekcja 3 — Bezpieczeństwo i potok: aso/klasa-2/05-powershell/03-bezpieczenstwo-i-potok/index.md
+              - Lekcja 4 — Dane i skrypty: aso/klasa-2/05-powershell/04-dane-i-skrypty/index.md
+              - Mini-zadania 1–9: aso/klasa-2/05-powershell/05-mini-zadania/index.md
+              - Zadania utrwalające: aso/klasa-2/05-powershell/06-zadania-utrwalajace/index.md
+          - Zabezpieczenia i kopie:
+              - aso/klasa-2/06-zabezpieczenia-i-kopie/index.md
+              - Antywirus i zapora: aso/klasa-2/06-zabezpieczenia-i-kopie/01-antywirus-i-zapora/index.md
+              - Kopie bezpieczeństwa: aso/klasa-2/06-zabezpieczenia-i-kopie/02-kopie-zapasowe/index.md
+              - Zadania utrwalające: aso/klasa-2/06-zabezpieczenia-i-kopie/03-zadania-utrwalajace/index.md
       - Klasa 3:
           - aso/klasa-3/index.md
           - Podstawy sieci i adres statyczny:

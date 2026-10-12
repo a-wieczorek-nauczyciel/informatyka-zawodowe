@@ -1,30 +1,28 @@
+---
+hide:
+  - navigation
+---
 
 # Klasa 3 — Podstawy Programowania
 
+Na lekcjach pracujemy w **Pythonie**: najpierw funkcje i metody, potem programowanie obiektowe. Równolegle przygotowujemy się do przejścia na **C#** — w części C# znajdziesz te same podstawy (typy, instrukcje warunkowe, pętle, tablice, metody) zapisane w nowym języku.
+
 <div class="grid cards" markdown>
 
--   **Funkcje. Funkcje biblioteczne**
+-   **Python**
 
     ---
 
-    Definicja funkcji, parametry, moduły i biblioteki
+    Funkcje, moduły i biblioteki, zasady programowania obiektowego, klasy i obiekty
 
-    [:octicons-arrow-right-24: Przejdź](01-funkcje/index.md)
+    [:octicons-arrow-right-24: Przejdź](python/index.md)
 
--   **Zasady programowania obiektowego**
-
-    ---
-
-    Paradygmat OOP, podstawowe pojęcia: klasa, obiekt, dziedziczenie, hermetyzacja, polimorfizm
-
-    [:octicons-arrow-right-24: Przejdź](02-zasady-programowania-obiektowego/index.md)
-
--   **Klasy i obiekty**
+-   **C#**
 
     ---
 
-    Pola, metody, konstruktor, specyfikatory dostępu, składniki statyczne
+    Wprowadzenie do C# dla osób znających Pythona: typy, warunki, pętle, tablice, metody
 
-    [:octicons-arrow-right-24: Przejdź](03-klasy-i-obiekty/index.md)
+    [:octicons-arrow-right-24: Przejdź](csharp/index.md)
 
 </div>

@@ -5,7 +5,7 @@ hide:
 
 # Klasa 2 — Administracja Systemami Operacyjnymi
 
-Systemy operacyjne stacji roboczych: Windows i Linux. Instalacja, podstawowa konfiguracja i praca z wierszem poleceń.
+Systemy operacyjne stacji roboczych. Semestr 1 — Windows, semestr 2 — Linux.
 
 <div class="grid cards" markdown>
 
@@ -17,12 +17,44 @@ Systemy operacyjne stacji roboczych: Windows i Linux. Instalacja, podstawowa kon
 
     [:octicons-arrow-right-24: Przejdź](01-wirtualizacja-i-instalacja/index.md)
 
+-   **Konfiguracja systemu Windows**
+
+    ---
+
+    Interfejs sieciowy, diagnostyka, udostępnianie internetu, personalizacja, narzędzia administracyjne
+
+    [:octicons-arrow-right-24: Przejdź](02-konfiguracja-windows/index.md)
+
+-   **Konta i grupy lokalne**
+
+    ---
+
+    Konta, grupy, profile użytkowników, prawa i przywileje, przydziały dyskowe
+
+    [:octicons-arrow-right-24: Przejdź](03-konta-i-grupy/index.md)
+
+-   **Zabezpieczanie zasobów**
+
+    ---
+
+    Uprawnienia NTFS, icacls, udostępnianie zasobów, zasady zabezpieczeń lokalnych
+
+    [:octicons-arrow-right-24: Przejdź](04-zabezpieczanie-zasobow/index.md)
+
 -   **PowerShell**
 
     ---
 
-    Cmdlety, potok obiektów, zarządzanie plikami, użytkownikami i usługami, pierwsze skrypty
+    Powłoka, cmdlety, pomoc, potok obiektów, zmienne, pętle i skrypty
 
-    [:octicons-arrow-right-24: Przejdź](02-powershell/index.md)
+    [:octicons-arrow-right-24: Przejdź](05-powershell/index.md)
+
+-   **Zabezpieczenia i kopie bezpieczeństwa**
+
+    ---
+
+    Antywirus, zapora, rodzaje kopii, punkty przywracania, obraz systemu, robocopy
+
+    [:octicons-arrow-right-24: Przejdź](06-zabezpieczenia-i-kopie/index.md)
 
 </div>
