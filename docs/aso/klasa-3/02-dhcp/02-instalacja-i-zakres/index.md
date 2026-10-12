@@ -3,26 +3,15 @@
 !!! info "Cel lekcji"
     Po tej lekcji będziesz umieć przygotować serwer do pracy jako serwer DHCP, zainstalować rolę DHCP Server na Windows Server 2022, utworzyć i aktywować zakres oraz sprawdzić, że klient otrzymał z niego adres.
 
-## Krok 0: serwer musi mieć adres statyczny
+## Krok 0: przygotowanie labu
 
-Serwer DHCP **nie może sam pobierać adresu z DHCP** — klienci muszą wiedzieć, gdzie go szukać, a jego adres nie może się zmieniać. Zanim zainstalujesz rolę, ustaw na `SRV01` adres statyczny.
+Serwer DHCP **nie może sam pobierać adresu z DHCP** — klienci muszą wiedzieć, gdzie go szukać, a jego adres nie może się zmieniać. Przed instalacją roli sprawdź, czy masz gotowe środowisko z działu [Podstawy sieci i adres statyczny](../../01-podstawy-sieci/index.md):
 
-**GUI:** `Server Manager → Local Server → Ethernet` → właściwości karty → *Internet Protocol Version 4 (TCP/IPv4)* → *Use the following IP address*.
+- [ ] `SRV01` ma adres `192.168.10.10/24`, bramę `192.168.10.1`, DNS `192.168.10.10`
+- [ ] obie maszyny są w sieci Internal Network `lab`
+- [ ] ping z klienta do serwera działa
 
-**PowerShell:**
-
-```powershell
-Get-NetAdapter                                     # sprawdź nazwę karty, np. "Ethernet"
-New-NetIPAddress -InterfaceAlias "Ethernet" -IPAddress 192.168.10.10 `
-    -PrefixLength 24 -DefaultGateway 192.168.10.1
-Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses 192.168.10.10
-Rename-Computer -NewName SRV01 -Restart
-```
-
-Jako DNS serwer wskazuje sam siebie — w następnym dziale zainstalujemy na nim rolę DNS.
-
-!!! warning "Sprawdź kartę sieciową w VirtualBox"
-    Obie maszyny (`SRV01` i `CLIENT01`) muszą mieć kartę w trybie **Internal Network** o **tej samej nazwie** (`lab`). Literówka w nazwie sieci (`lab` vs `Lab`) = dwie osobne sieci i klient nigdy nie zobaczy serwera.
+Na kliencie przełącz kartę z adresu testowego na **Obtain an IP address automatically** i **Obtain DNS server address automatically** — od teraz konfigurację ma mu dawać serwer.
 
 ## Krok 1: instalacja roli DHCP Server
 

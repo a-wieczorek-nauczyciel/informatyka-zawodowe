@@ -77,15 +77,22 @@ nav:
               - Zadania utrwalające: aso/klasa-2/02-powershell/05-zadania-utrwalajace/index.md
       - Klasa 3:
           - aso/klasa-3/index.md
+          - Podstawy sieci i adres statyczny:
+              - aso/klasa-3/01-podstawy-sieci/index.md
+              - Adresacja IPv4: aso/klasa-3/01-podstawy-sieci/01-adresacja-ipv4/index.md
+              - Adres sieci i hosty: aso/klasa-3/01-podstawy-sieci/02-adres-sieci-i-hosty/index.md
+              - Adres statyczny na Windows Server 2022: aso/klasa-3/01-podstawy-sieci/03-adres-statyczny-ws2022/index.md
+              - Sieć laboratoryjna: aso/klasa-3/01-podstawy-sieci/04-siec-laboratoryjna/index.md
+              - Zadania utrwalające: aso/klasa-3/01-podstawy-sieci/05-zadania-utrwalajace/index.md
           - Serwer DHCP:
-              - aso/klasa-3/01-dhcp/index.md
-              - Jak działa DHCP: aso/klasa-3/01-dhcp/01-jak-dziala-dhcp/index.md
-              - Instalacja roli i zakres: aso/klasa-3/01-dhcp/02-instalacja-i-zakres/index.md
-              - Wykluczenia, rezerwacje, opcje: aso/klasa-3/01-dhcp/03-rezerwacje-i-opcje/index.md
-              - Zadania utrwalające: aso/klasa-3/01-dhcp/04-zadania-utrwalajace/index.md
+              - aso/klasa-3/02-dhcp/index.md
+              - Jak działa DHCP: aso/klasa-3/02-dhcp/01-jak-dziala-dhcp/index.md
+              - Instalacja roli i zakres: aso/klasa-3/02-dhcp/02-instalacja-i-zakres/index.md
+              - Wykluczenia, rezerwacje, opcje: aso/klasa-3/02-dhcp/03-rezerwacje-i-opcje/index.md
+              - Zadania utrwalające: aso/klasa-3/02-dhcp/04-zadania-utrwalajace/index.md
           - Serwer DNS:
-              - aso/klasa-3/02-dns/index.md
-              - Jak działa DNS: aso/klasa-3/02-dns/01-jak-dziala-dns/index.md
-              - Instalacja roli i strefy: aso/klasa-3/02-dns/02-instalacja-i-strefy/index.md
-              - Rekordy, przekazywanie, testowanie: aso/klasa-3/02-dns/03-rekordy-i-testowanie/index.md
-              - Zadania utrwalające: aso/klasa-3/02-dns/04-zadania-utrwalajace/index.md
+              - aso/klasa-3/03-dns/index.md
+              - Jak działa DNS: aso/klasa-3/03-dns/01-jak-dziala-dns/index.md
+              - Instalacja roli i strefy: aso/klasa-3/03-dns/02-instalacja-i-strefy/index.md
+              - Rekordy, przekazywanie, testowanie: aso/klasa-3/03-dns/03-rekordy-i-testowanie/index.md
+              - Zadania utrwalające: aso/klasa-3/03-dns/04-zadania-utrwalajace/index.md

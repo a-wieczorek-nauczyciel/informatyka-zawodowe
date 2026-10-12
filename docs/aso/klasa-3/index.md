@@ -9,13 +9,21 @@ Serwery sieciowe i ich konfiguracja. W pierwszym semestrze pracujemy na Windows 
 
 <div class="grid cards" markdown>
 
+-   **Podstawy sieci i adres statyczny**
+
+    ---
+
+    Adresacja IPv4, maska, brama, DNS; konfiguracja adresu statycznego na Windows Server 2022
+
+    [:octicons-arrow-right-24: Przejdź](01-podstawy-sieci/index.md)
+
 -   **Serwer DHCP**
 
     ---
 
     Automatyczna konfiguracja adresów: DORA, zakresy, wykluczenia, rezerwacje, opcje
 
-    [:octicons-arrow-right-24: Przejdź](01-dhcp/index.md)
+    [:octicons-arrow-right-24: Przejdź](02-dhcp/index.md)
 
 -   **Serwer DNS**
 
@@ -23,7 +31,7 @@ Serwery sieciowe i ich konfiguracja. W pierwszym semestrze pracujemy na Windows 
 
     Rozwiązywanie nazw: strefy, rekordy, strefa wyszukiwania wstecznego, przekazywanie
 
-    [:octicons-arrow-right-24: Przejdź](02-dns/index.md)
+    [:octicons-arrow-right-24: Przejdź](03-dns/index.md)
 
 </div>
 
