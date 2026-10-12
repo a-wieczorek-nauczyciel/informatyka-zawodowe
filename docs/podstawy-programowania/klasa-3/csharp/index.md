@@ -6,26 +6,26 @@ hide:
 # Klasa 3 — C#
 
 !!! info "Cel działu"
-    Po tym dziale będziesz umieć napisać, skompilować i uruchomić program w C#, wyjaśnić drogę od kodu do procesora (C# → CIL → JIT), dobrać typ danych, bezpiecznie wczytać liczbę z konsoli, zapisać instrukcje warunkowe i pętle, posługiwać się tablicami i listami oraz dzielić program na metody — korzystając z tego, co już umiesz w Pythonie.
+    Po tym dziale będziesz znać język C# i platformę .NET: wiesz, jak działa program od kodu do procesora, umiesz utworzyć, zbudować, uruchomić i debugować projekt, dobierasz typy danych, piszesz instrukcje warunkowe i pętle, posługujesz się tablicami, kolekcjami, strukturami i typami wyliczeniowymi oraz dzielisz program na metody.
 
-!!! note "Nie zaczynamy od zera"
-    Wiesz już, czym jest zmienna, warunek, pętla i funkcja. Na tych stronach sprawdzamy, **jak to samo działa w C#** i gdzie intuicja z Pythona zawodzi. Przy wielu przykładach znajdziesz zakładki **Python** i **C#** z tym samym programem w obu językach.
+!!! note "Środowisko"
+    Pracujemy w **GitHub Codespaces** lub w **Visual Studio Code** z zainstalowanym **.NET SDK** w wersji LTS. Każdy program to osobny projekt konsolowy utworzony poleceniem `dotnet new console`.
 
 <div class="grid cards" markdown>
 
--   **Wprowadzenie: od Pythona do C#**
+-   **Wprowadzenie do C# i platformy .NET**
 
     ---
 
-    C#, .NET, CIL, JIT, typowanie statyczne, pierwszy program
+    Czym jest C#, składniki .NET, kompilacja do CIL i JIT, projekt i narzędzia, budowa programu
 
     [:octicons-arrow-right-24: Przejdź](01-wprowadzenie/index.md)
 
--   **Typy, operatory, wejście i wyjście**
+-   **Typy, zmienne, operatory, wejście i wyjście**
 
     ---
 
-    int, double, bool, char, string; dzielenie, konwersje, Parse i TryParse
+    Typy całkowite i zmiennoprzecinkowe, wartościowe i referencyjne, operatory, konwersje, TryParse, formatowanie
 
     [:octicons-arrow-right-24: Przejdź](02-typy-i-operatory/index.md)
 
@@ -33,7 +33,7 @@ hide:
 
     ---
 
-    if / else, operatory logiczne, switch, wyrażenie switch
+    if / else, złożone warunki, porównywanie tekstów, ?:, switch, wyrażenie switch i wzorce
 
     [:octicons-arrow-right-24: Przejdź](03-instrukcje-warunkowe/index.md)
 
@@ -41,23 +41,23 @@ hide:
 
     ---
 
-    for, while, do-while, foreach, break, continue, zasięg zmiennych
+    for, while, do-while, foreach, break, continue, pętle zagnieżdżone, zasięg zmiennych
 
     [:octicons-arrow-right-24: Przejdź](04-petle/index.md)
 
--   **Tablice i listy**
+-   **Złożone typy danych**
 
     ---
 
-    Tablice, List&lt;T&gt;, przechodzenie po kolekcji, typowe operacje
+    Tablice, tablice wielowymiarowe, List, Dictionary, Queue, Stack, struct, enum
 
-    [:octicons-arrow-right-24: Przejdź](05-tablice-i-listy/index.md)
+    [:octicons-arrow-right-24: Przejdź](05-zlozone-typy-danych/index.md)
 
 -   **Metody**
 
     ---
 
-    Definicja, parametry, zwracanie wartości, void, przeciążanie, ref i out
+    Definicja, sygnatura, return, void, ref, out, in, params, parametry domyślne, przeciążanie
 
     [:octicons-arrow-right-24: Przejdź](06-metody/index.md)
 

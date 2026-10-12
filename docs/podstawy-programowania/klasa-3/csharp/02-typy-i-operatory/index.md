@@ -1,105 +1,247 @@
-# Typy, operatory, wejście i wyjście
+# Typy, zmienne, operatory, wejście i wyjście
 
 !!! info "Cel lekcji"
-    Po tej lekcji będziesz umieć dobrać typ danych do wartości, rozróżnić typy całkowite i zmiennoprzecinkowe, stosować operatory zgodnie z ich priorytetem, zamieniać typy między sobą oraz bezpiecznie odczytać liczbę wpisaną przez użytkownika.
+    Po tej lekcji będziesz umieć zadeklarować zmienną i stałą, dobrać typ do przechowywanej wartości, rozróżnić typy stałoprzecinkowe i zmiennoprzecinkowe oraz wartościowe i referencyjne, stosować operatory zgodnie z ich priorytetem, zamieniać typy między sobą i bezpiecznie wczytywać dane od użytkownika.
+
+## Zmienne i stałe
+
+**Zmienna** to nazwane miejsce w pamięci, które przechowuje wartość określonego **typu**. Typ podajemy przy deklaracji i nie można go później zmienić.
+
+```csharp
+int liczbaUczniow;          // deklaracja
+liczbaUczniow = 28;         // przypisanie
+int liczbaKlas = 4;         // deklaracja z inicjalizacją
+int a = 1, b = 2, c = 3;    // kilka zmiennych jednego typu
+```
+
+Zmiennej lokalnej **nie wolno odczytać**, zanim nada się jej wartość — kompilator zgłosi błąd `CS0165`.
+
+### var — typ ustalany przez kompilator
+
+```csharp
+var wiek = 17;          // int
+var srednia = 4.5;      // double
+var imie = "Ada";       // string
+```
+
+`var` nie oznacza „dowolnego typu”. Kompilator odczytuje typ z wartości po prawej stronie i od tej chwili zmienna ma ten typ na stałe. `var` wymaga inicjalizacji: `var x;` to błąd.
+
+### Stałe
+
+```csharp
+const double StawkaVat = 0.23;
+const int MaksLiczbaProb = 3;
+```
+
+Wartość stałej jest znana w czasie kompilacji i nie da się jej zmienić. Stałe zastępują „magiczne liczby” w kodzie: `cena * StawkaVat` mówi więcej niż `cena * 0.23`.
 
 ## Typy proste
 
-| Typ | Do czego | Przykład | Zakres / uwagi |
+### Typy całkowite (stałoprzecinkowe)
+
+| Typ | Rozmiar | Zakres | Przykład |
 |---|---|---|---|
-| `int` | liczba całkowita | `int punkty = 10;` | ok. ±2,1 miliarda |
-| `long` | duża liczba całkowita | `long ludnosc = 8_000_000_000;` | ok. ±9,2 · 10¹⁸ |
-| `double` | liczba z ułamkiem | `double masa = 72.5;` | ok. 15–16 cyfr znaczących, wyniki przybliżone |
-| `decimal` | kwoty pieniężne | `decimal cena = 19.99m;` | dokładne ułamki dziesiętne, przyrostek `m` |
-| `bool` | tak / nie | `bool wygrana = false;` | tylko `true` lub `false` |
-| `char` | pojedynczy znak | `char odpowiedz = 'A';` | apostrofy `' '` |
-| `string` | tekst | `string imie = "Ada";` | cudzysłowy `" "` |
+| `byte` | 8 bitów | 0 … 255 | wartość składowej koloru |
+| `short` | 16 bitów | −32 768 … 32 767 | |
+| `int` | 32 bity | ok. −2,1 mld … 2,1 mld | **domyślny wybór**: liczniki, punkty, wiek |
+| `long` | 64 bity | ok. ±9,2 · 10¹⁸ | liczba ludności świata, czas w milisekundach |
 
-Typ mówi, jakie dane przechowujemy i jakie operacje mają sens: liczby mnożymy, tekst sklejamy, a odpowiedź „tak/nie” przechowujemy jako `bool`.
+Istnieją też wersje bez znaku: `ushort`, `uint`, `ulong`, oraz `sbyte`. Zakres sprawdzisz w programie: `int.MinValue`, `int.MaxValue`.
 
-!!! warning "Python ma jeden typ całkowity, C# kilka"
-    W Pythonie `int` nie ma górnej granicy. W C# `int` ma 32 bity. Po przekroczeniu `int.MaxValue` wartość domyślnie „przekręca się” na liczbę ujemną — bez żadnego komunikatu.
+### Typy zmiennoprzecinkowe
 
-### Stałe i liczby w kodzie
+| Typ | Rozmiar | Dokładność | Przyrostek | Zastosowanie |
+|---|---|---|---|---|
+| `float` | 32 bity | ok. 7 cyfr | `f` → `3.14f` | grafika, gry |
+| `double` | 64 bity | ok. 15–16 cyfr | brak → `3.14` | **domyślny wybór**: obliczenia, pomiary |
+| `decimal` | 128 bitów | 28–29 cyfr dziesiętnych | `m` → `19.99m` | **pieniądze** |
+
+`float` i `double` przechowują liczby w systemie dwójkowym, więc wielu ułamków dziesiętnych nie zapiszą dokładnie. `0.1 + 0.2` to w `double` nie dokładnie `0.3`. `decimal` liczy w systemie dziesiętnym — dlatego używa się go do kwot.
 
 ```csharp
-const double Vat = 0.23;      // stała: nie można jej zmienić
-int milion = 1_000_000;       // podkreślenia dla czytelności
-double d = 1e-3;              // 0.001
+double d = 0.1 + 0.2;
+decimal m = 0.1m + 0.2m;
+Console.WriteLine(d == 0.3);     // porównanie liczb zmiennoprzecinkowych bywa zawodne
+Console.WriteLine(m == 0.3m);
 ```
+
+Liczby `double` porównujemy z tolerancją: `Math.Abs(d - 0.3) < 1e-9`.
+
+### Pozostałe typy proste
+
+| Typ | Wartości | Przykład |
+|---|---|---|
+| `bool` | `true`, `false` | `bool zdane = punkty >= 50;` |
+| `char` | jeden znak Unicode, w apostrofach | `char ocena = 'A';`, `char nowaLinia = '\n';` |
+| `string` | tekst, w cudzysłowach | `string imie = "Ada";` |
+
+`char` to w rzeczywistości liczba — kod znaku w Unicode. Dlatego `'A' + 1` daje liczbę `66`, a `(char)66` daje `'B'`.
+
+### Literały liczbowe
+
+```csharp
+int milion = 1_000_000;    // podkreślenia dla czytelności
+int hex = 0xFF;            // szesnastkowo: 255
+int bin = 0b1010;          // dwójkowo: 10
+double maly = 1.5e-3;      // notacja wykładnicza: 0.0015
+long duzy = 5_000_000_000L;
+```
+
+## Typy wartościowe i referencyjne
+
+![Typ wartościowy a referencyjny w pamięci](../../../../assets/img/pp/stos-sterta.svg)
+
+| | Typy **wartościowe** | Typy **referencyjne** |
+|---|---|---|
+| przykłady | `int`, `double`, `bool`, `char`, `decimal`, `struct`, `enum` | `string`, tablice, `List<T>`, klasy |
+| zmienna zawiera | samą wartość | **referencję** (adres) do obiektu |
+| przypisanie `b = a` | kopiuje wartość | kopiuje referencję — obie zmienne wskazują ten sam obiekt |
+| wartość `null` | niedozwolona (chyba że typ `int?`) | dozwolona: „brak obiektu” |
+
+`string` jest typem referencyjnym, ale **niezmiennym** (*immutable*): każda „zmiana” tekstu tworzy nowy obiekt. Dlatego `a.ToUpper()` nie zmienia `a` — zwraca nowy tekst, który trzeba zapisać: `a = a.ToUpper();`.
 
 ## Operatory
 
-| Grupa | Operatory | Uwagi |
-|---|---|---|
-| arytmetyczne | `+ - * / %` | `/` dla dwóch liczb całkowitych daje wynik całkowity |
-| inkrementacja | `++ --` | `x++` zwiększa o 1 |
-| przypisania | `= += -= *= /= %=` | `x += 5` to `x = x + 5` |
-| porównania | `== != < > <= >=` | wynik to `bool` |
-| logiczne | <code>&& &#124;&#124; !</code> | i, lub, nie (w Pythonie: `and`, `or`, `not`) |
-| łańcuchowe | `+` | sklejanie tekstu |
-| warunkowy | `warunek ? a : b` | wartość `a` albo `b` |
-| bitowe | <code>& &#124; ^ ~ &lt;&lt; >></code> | operacje na pojedynczych bitach |
+### Arytmetyczne
 
-### Dzielenie całkowite
+| Operator | Działanie | Przykład | Wynik |
+|---|---|---|---|
+| `+` `-` `*` | dodawanie, odejmowanie, mnożenie | `7 * 3` | `21` |
+| `/` | dzielenie | `7 / 2` · `7.0 / 2` | `3` · `3.5` |
+| `%` | reszta z dzielenia | `7 % 3` | `1` |
+| `++` `--` | zwiększenie / zmniejszenie o 1 | `x++` | |
 
-O wyniku dzielenia decydują **typy** liczb:
+**Dzielenie całkowite.** Jeśli oba argumenty `/` są całkowite, wynik też jest całkowity — część ułamkowa jest **odcinana** (zaokrąglenie w stronę zera). Wystarczy, że jeden argument jest `double`, żeby wynik był `double`.
+
+**Reszta z dzielenia** ma znak dzielnej: `-7 % 3` daje wynik ujemny. Sprawdzanie parzystości: `x % 2 == 0`.
+
+**Przed czy po.** `x++` zwraca starą wartość i zwiększa, `++x` zwiększa i zwraca nową:
 
 ```csharp
-Console.WriteLine(7 / 2);      // oba int → wynik int (część ułamkowa jest odcinana)
-Console.WriteLine(7 / 2.0);    // jeden double → wynik double
-Console.WriteLine(7 % 2);      // reszta z dzielenia
+int x = 5;
+int a = x++;   // a = 5, x = 6
+int b = ++x;   // x = 7, b = 7
 ```
 
-W C# dzielenie całkowite **odcina część ułamkową** (zaokrągla w stronę zera), a w Pythonie `//` zaokrągla **w dół**. Dla liczb dodatnich wynik jest ten sam, dla ujemnych — nie.
+### Przypisania
+
+`=`, `+=`, `-=`, `*=`, `/=`, `%=` — `suma += x` to krótszy zapis `suma = suma + x`.
+
+### Porównania i logiczne
+
+| Operator | Znaczenie |
+|---|---|
+| `==` `!=` | równe, różne |
+| `<` `>` `<=` `>=` | mniejsze, większe … |
+| `&&` | i (oba warunki prawdziwe) |
+| <code>&#124;&#124;</code> | lub (co najmniej jeden prawdziwy) |
+| `!` | nie |
+
+`&&` i <code>&#124;&#124;</code> sprawdzają drugi warunek tylko wtedy, gdy to potrzebne (**obliczanie skrócone**).
+
+### Bitowe
+
+Działają na pojedynczych bitach liczb całkowitych.
+
+| Operator | Działanie | Przykład (dwójkowo) | Wynik |
+|---|---|---|---|
+| `&` | AND | `0b1100 & 0b1010` | `0b1000` = 8 |
+| <code>&#124;</code> | OR | <code>0b1100 &#124; 0b1010</code> | `0b1110` = 14 |
+| `^` | XOR | `0b1100 ^ 0b1010` | `0b0110` = 6 |
+| `~` | negacja bitów | `~0` | `-1` |
+| `<<` `>>` | przesunięcie w lewo / w prawo | `1 << 3` · `16 >> 2` | `8` · `4` |
+
+Przesunięcie w lewo o *n* bitów mnoży przez 2ⁿ, w prawo — dzieli. Operatory bitowe przydają się np. przy maskach podsieci i flagach uprawnień.
+
+### Łańcuchowe
+
+`+` skleja teksty. Jeśli choć jeden argument jest tekstem, drugi zostanie zamieniony na tekst. Operacje wykonują się **od lewej do prawej**, więc kolejność ma znaczenie:
+
+```csharp
+Console.WriteLine("Wynik: " + 2 + 3);    // sklejanie od lewej
+Console.WriteLine(2 + 3 + " punktów");   // najpierw dodawanie liczb
+```
+
+### Warunkowy i null
+
+```csharp
+string opis = punkty >= 50 ? "zaliczone" : "niezaliczone";
+string tekst = Console.ReadLine() ?? "";     // jeśli null, użyj ""
+```
 
 ### Priorytet operatorów
 
-Od najwyższego: `!` i `++` → `* / %` → `+ -` → `< > <= >=` → `== !=` → `&&` → `||` → `?:` → przypisania. W razie wątpliwości użyj nawiasów.
+Od najwyższego:
 
-### Plus: tekst czy dodawanie?
+1. `x++`, `x--`, wywołania metod, dostęp przez kropkę
+2. `!`, `~`, `++x`, `--x`, rzutowanie `(int)`
+3. `*`, `/`, `%`
+4. `+`, `-`
+5. `<<`, `>>`
+6. `<`, `>`, `<=`, `>=`
+7. `==`, `!=`
+8. `&`, potem `^`, potem <code>&#124;</code>
+9. `&&`, potem <code>&#124;&#124;</code>
+10. `??`, potem `?:`
+11. przypisania `=`, `+=` …
 
-??? question "Co zrobi ten kod?"
-    ```csharp
-    Console.WriteLine("72" + "2");
-    Console.WriteLine(72 + 2);
-    Console.WriteLine("72" + 2 + 3);
-    Console.WriteLine(2 + 3 + "72");
-    ```
-
-    Co wypisze każda linia? Dlaczego trzecia i czwarta dają różne wyniki? Co by się stało w Pythonie przy `"72" + 2`?
+Gdy masz wątpliwość — użyj nawiasów. Czytelność jest ważniejsza niż oszczędność znaków.
 
 ## Konwersje typów
 
+| Rodzaj | Kiedy | Przykład |
+|---|---|---|
+| **niejawna** | bez ryzyka utraty danych | `int i = 5; double d = i;` |
+| **jawna** (rzutowanie) | może stracić dane — trzeba ją zapisać | `double d = 9.99; int i = (int)d;` → `9` |
+| **metody** `Parse`, `TryParse` | tekst → liczba | `int.Parse("42")` |
+| `ToString()` | dowolny typ → tekst | `42.ToString()` |
+| klasa `Convert` | między typami podstawowymi | `Convert.ToInt32(9.6)` → `10` (zaokrągla) |
+
+Rzutowanie `(int)` **odcina** część ułamkową, a `Convert.ToInt32` i `Math.Round` **zaokrąglają**.
+
+### Przepełnienie
+
+Po przekroczeniu zakresu `int` wartość domyślnie „przekręca się” na drugi koniec zakresu, bez komunikatu. W bloku `checked` środowisko zgłosi wyjątek `OverflowException`:
+
 ```csharp
-int calk = 7;
-double ulamek = calk;          // niejawna: int mieści się w double
-
-double cena = 9.99;
-int obcieta = (int)cena;       // jawna (rzutowanie): część ułamkowa odcięta
-
-string tekst = calk.ToString();          // liczba → tekst
-double zaokr = Math.Round(2.567, 2);     // 2.57
+int m = int.MaxValue;
+checked
+{
+    m++;    // OverflowException
+}
 ```
 
-Konwersja, w której można stracić informację, musi być **jawna** — inaczej kompilator zgłosi błąd.
+## Wczytywanie danych od użytkownika
 
-## Wejście z konsoli jest tekstem
-
-`Console.ReadLine()` zawsze zwraca tekst (`string`). Żeby wykonać obliczenia, trzeba z tekstu odczytać liczbę. Ten krok nazywamy **parsowaniem**.
+`Console.ReadLine()` zawsze zwraca **tekst**. Zamiana tekstu na liczbę to **parsowanie**.
 
 | Sposób | Zwraca | Gdy tekst nie jest liczbą |
 |---|---|---|
-| `double.Parse(tekst)` | liczbę `double` | wyjątek `FormatException`, program się przerywa |
-| `double.TryParse(tekst, out x)` | `bool` (udało się?) + liczba przez `out` | zwraca `false`, program działa dalej |
+| `int.Parse(tekst)` | `int` | wyjątek `FormatException`, program się przerywa |
+| `int.TryParse(tekst, out int x)` | `bool` + liczba przez `out` | zwraca `false`, program działa dalej |
 
-Dane od użytkownika są **niezaufane**: mogą zawierać litery, spacje, przecinek zamiast kropki albo nic. Dlatego w programach z wejściem używamy `TryParse` i sprawdzamy jego wynik.
+Dane od użytkownika są **niezaufane**: mogą zawierać litery, spacje, przecinek zamiast kropki albo nic. Dlatego używamy `TryParse` i sprawdzamy wynik:
+
+```csharp
+Console.Write("Podaj liczbę uczniów: ");
+string tekst = Console.ReadLine() ?? "";
+
+if (int.TryParse(tekst, out int liczba) && liczba > 0)
+{
+    Console.WriteLine($"Każdy dostanie {120 / liczba} cukierków.");
+}
+else
+{
+    Console.WriteLine("To nie jest poprawna liczba uczniów.");
+}
+```
+
+### Liczby z ułamkiem i separator dziesiętny
+
+`double.TryParse` korzysta z ustawień regionalnych komputera: na polskim systemie oczekuje przecinka (`72,5`), na angielskim kropki (`72.5`). Żeby zawsze przyjmować kropkę:
 
 ```csharp
 using System.Globalization;
-
-Console.Write("Podaj masę, używając kropki: ");
-string tekst = Console.ReadLine() ?? "";
 
 bool poprawne = double.TryParse(
     tekst,
@@ -107,81 +249,62 @@ bool poprawne = double.TryParse(
     CultureInfo.InvariantCulture,
     out double masa
 );
-
-Console.WriteLine($"Czy poprawne: {poprawne}");
-Console.WriteLine($"Odczytana wartość: {masa}");
 ```
-
-| Element | Znaczenie |
-|---|---|
-| `TryParse` | próbuje odczytać liczbę |
-| `poprawne` | czy próba się udała |
-| `out double masa` | miejsce na odczytaną liczbę |
-| `InvariantCulture` | kropka jako separator, niezależnie od ustawień komputera |
-| `?? ""` | jeśli brak tekstu, użyj pustego |
-
-=== "Python"
-
-    ```python
-    tekst = input("Podaj wiek: ")
-    try:
-        wiek = int(tekst)
-        print(f"Za rok: {wiek + 1}")
-    except ValueError:
-        print("To nie jest liczba")
-    ```
-
-=== "C#"
-
-    ```csharp
-    Console.Write("Podaj wiek: ");
-    string tekst = Console.ReadLine() ?? "";
-    if (int.TryParse(tekst, out int wiek))
-    {
-        Console.WriteLine($"Za rok: {wiek + 1}");
-    }
-    else
-    {
-        Console.WriteLine("To nie jest liczba");
-    }
-    ```
 
 ## Formatowanie wyniku
 
 ```csharp
 double bmi = 22.2222;
-Console.WriteLine($"BMI: {bmi:F2}");        // dwa miejsca po przecinku
-Console.WriteLine($"Cena: {19.5m:C}");      // format walutowy wg ustawień komputera
-Console.WriteLine($"|{"ab",5}|{"cd",-5}|"); // wyrównanie do prawej i do lewej
+decimal cena = 1234.5m;
+
+Console.WriteLine($"{bmi:F2}");        // 2 miejsca po przecinku
+Console.WriteLine($"{cena:N2}");       // separator tysięcy: 1 234,50
+Console.WriteLine($"{cena:C}");        // waluta wg ustawień systemu
+Console.WriteLine($"{0.237:P1}");      // procent: 23,7%
+Console.WriteLine($"{7:D3}");          // zera wiodące: 007
+Console.WriteLine($"|{"ab",6}|{"cd",-6}|");   // wyrównanie do prawej i lewej
 ```
 
-Separator dziesiętny w wyniku (przecinek lub kropka) zależy od ustawień regionalnych komputera.
+## Przydatne klasy: Math i string
+
+```csharp
+Math.Abs(-5)          // 5
+Math.Pow(2, 10)       // 1024
+Math.Sqrt(16)         // 4
+Math.Round(2.567, 2)  // 2.57
+Math.Max(3, 8)        // 8
+Math.PI               // 3.14159…
+
+string s = "  Programowanie  ";
+s.Trim()              // bez spacji na brzegach
+s.ToUpper()           // wielkie litery
+s.Length              // liczba znaków
+s.Contains("gram")    // true
+s.Replace("a", "@")   // zamiana
+s.Substring(2, 7)     // fragment od indeksu 2, długość 7
+s[2]                  // znak na pozycji 2 (typ char)
+string.IsNullOrWhiteSpace(s)   // czy tekst jest pusty lub z samych spacji
+```
 
 ## Zadania
 
-??? question "Zadanie 1: Przewiduj, potem testuj"
-    Dla programu z `TryParse` (masa) zapisz w tabeli, co wypisze dla wpisów: `72.5`, `kot`, `72 kg`, pusty Enter, `-5`, `72,5`. Dopiero potem uruchom i porównaj. Co zawiera `masa`, gdy parsowanie się nie udało?
+??? question "Zadanie 1: Dobierz typ"
+    Dobierz typ i nazwę zmiennej do każdej wartości: liczba mieszkańców Krakowa, cena biletu, temperatura z dokładnością do 0,1°, informacja, czy uczeń jest pełnoletni, pierwsza litera nazwiska, liczba gwiazd w Drodze Mlecznej (ok. 100–400 mld), adres e-mail. Uzasadnij wybory.
 
-??? question "Zadanie 2: Kalkulator BMI"
-    Napisz program, który pobiera masę w kilogramach i wzrost w centymetrach, sprawdza, czy oba wejścia są liczbami i czy są większe od zera, oblicza BMI = masa / (wzrost w metrach)² i wypisuje wynik z dwoma miejscami po przecinku. Używaj fikcyjnych danych. Testy: `80` i `200`; `72` i `180`; `kot` i `180`; `72` i `0`; `-10` i `180`; puste i `180`.
+??? question "Zadanie 2: Przewiduj, potem testuj"
+    Zapisz przewidywane wyniki, a potem sprawdź w programie: `17 / 5`, `17 % 5`, `17 / 5.0`, `(double)17 / 5`, `(double)(17 / 5)`, `"17" + 5`, `17 + 5 + "x"`, `'A' + 2`, `(char)('A' + 2)`, `1 << 4`, `12 & 10`, `12 | 10`.
 
-??? question "Zadanie 3: Czy to się skompiluje?"
-    ```csharp
-    // (a)
-    double masa = 80;
-    double wzrostM = 2.0;
-    int bmi = masa / (wzrostM * wzrostM);
+??? question "Zadanie 3: Kalkulator BMI"
+    Program pobiera masę w kilogramach i wzrost w centymetrach (z kropką jako separatorem), sprawdza, czy oba wejścia są liczbami większymi od zera, oblicza BMI = masa / (wzrost w metrach)² i wypisuje wynik z dwoma miejscami po przecinku. Używaj fikcyjnych danych. Testy: `80` i `200`; `72` i `180`; `kot` i `180`; `72` i `0`; `-10` i `180`; puste i `180`; `72,5` i `180`.
 
-    // (b)
-    int wzrostCm = 175;
-    double wzrostM2 = wzrostCm / 100;
-    Console.WriteLine(wzrostM2);
-    ```
-
-    Czy (a) się skompiluje? Co wypisze (b)? Jak naprawić (b)?
-
-??? question "Zadanie 4: Sklep"
-    Napisz program, który wczytuje cenę netto produktu (`decimal`) i liczbę sztuk (`int`), a następnie wypisuje wartość netto, VAT 23% i wartość brutto, każdą z dwoma miejscami po przecinku. Dlaczego do pieniędzy lepiej nadaje się `decimal` niż `double`?
+??? question "Zadanie 4: Faktura"
+    Program wczytuje nazwę produktu, cenę netto (`decimal`) i liczbę sztuk (`int`), a następnie wypisuje tabelkę: netto, VAT 23%, brutto — wyrównaną do prawej, z dwoma miejscami po przecinku. Stawkę VAT zapisz jako stałą.
 
 ??? question "Zadanie 5: Sekundy"
-    Program wczytuje liczbę sekund i wypisuje ją w formacie `godziny:minuty:sekundy`, np. `3725` → `1:02:05`. Użyj dzielenia całkowitego i reszty.
+    Program wczytuje liczbę sekund i wypisuje ją w formacie `godziny:minuty:sekundy` z zerami wiodącymi, np. `3725` → `01:02:05`. Użyj dzielenia całkowitego, reszty i formatu `D2`.
+
+??? question "Zadanie 6: Bity"
+    Program wczytuje liczbę od 0 do 255 i wypisuje: jej zapis dwójkowy (`Convert.ToString(liczba, 2)`), czy jest parzysta (sprawdź operatorem `&`, nie `%`), wynik przesunięcia o 1 bit w lewo i w prawo.
+
+??? question "Zadanie 7: Przepełnienie"
+    Napisz program liczący silnię liczb od 1 do 25 w zmiennej `int`, a potem w `long`. Od której liczby wyniki są błędne w każdym typie? Jak wykryć przepełnienie blokiem `checked`?

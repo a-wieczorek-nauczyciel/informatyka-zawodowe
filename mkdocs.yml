@@ -23,6 +23,9 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
   - pymdownx.superfences
   - pymdownx.keys
   - pymdownx.tabbed:
@@ -62,14 +65,32 @@ nav:
                   - Zadania utrwalające: podstawy-programowania/klasa-3/python/03-klasy-i-obiekty/06-zadania-utrwalajace/index.md
           - C#:
               - podstawy-programowania/klasa-3/csharp/index.md
-              - "Wprowadzenie: od Pythona do C#": podstawy-programowania/klasa-3/csharp/01-wprowadzenie/index.md
-              - Typy, operatory, wejście i wyjście: podstawy-programowania/klasa-3/csharp/02-typy-i-operatory/index.md
+              - Wprowadzenie do C# i .NET:
+                  - podstawy-programowania/klasa-3/csharp/01-wprowadzenie/index.md
+                  - Czym jest C#: podstawy-programowania/klasa-3/csharp/01-wprowadzenie/01-czym-jest-csharp/index.md
+                  - Platforma .NET: podstawy-programowania/klasa-3/csharp/01-wprowadzenie/02-platforma-dotnet/index.md
+                  - Od kodu do programu: podstawy-programowania/klasa-3/csharp/01-wprowadzenie/03-od-kodu-do-programu/index.md
+                  - Projekt i narzędzia: podstawy-programowania/klasa-3/csharp/01-wprowadzenie/04-projekt-i-narzedzia/index.md
+                  - Budowa programu: podstawy-programowania/klasa-3/csharp/01-wprowadzenie/05-budowa-programu/index.md
+                  - Rozgrzewka i zadania: podstawy-programowania/klasa-3/csharp/01-wprowadzenie/06-zadania/index.md
+              - Typy, zmienne, operatory: podstawy-programowania/klasa-3/csharp/02-typy-i-operatory/index.md
               - Instrukcje warunkowe: podstawy-programowania/klasa-3/csharp/03-instrukcje-warunkowe/index.md
               - Pętle: podstawy-programowania/klasa-3/csharp/04-petle/index.md
-              - Tablice i listy: podstawy-programowania/klasa-3/csharp/05-tablice-i-listy/index.md
+              - Złożone typy danych: podstawy-programowania/klasa-3/csharp/05-zlozone-typy-danych/index.md
               - Metody: podstawy-programowania/klasa-3/csharp/06-metody/index.md
               - Zadania utrwalające: podstawy-programowania/klasa-3/csharp/07-zadania-utrwalajace/index.md
-      - Klasa 4: podstawy-programowania/klasa-4/index.md
+      - Klasa 4:
+          - podstawy-programowania/klasa-4/index.md
+          - C# — programowanie obiektowe:
+              - podstawy-programowania/klasa-4/csharp/index.md
+              - Wprowadzenie do OOP: podstawy-programowania/klasa-4/csharp/01-wprowadzenie-do-oop/index.md
+              - Klasy i obiekty: podstawy-programowania/klasa-4/csharp/02-klasy-i-obiekty/index.md
+              - Hermetyzacja: podstawy-programowania/klasa-4/csharp/03-hermetyzacja/index.md
+              - Dziedziczenie: podstawy-programowania/klasa-4/csharp/04-dziedziczenie/index.md
+              - Polimorfizm: podstawy-programowania/klasa-4/csharp/05-polimorfizm/index.md
+              - Interfejsy: podstawy-programowania/klasa-4/csharp/06-interfejsy/index.md
+              - Typy generyczne: podstawy-programowania/klasa-4/csharp/07-typy-generyczne/index.md
+              - Zadania i projekty: podstawy-programowania/klasa-4/csharp/08-zadania-i-projekty/index.md
       - Powtórka: podstawy-programowania/powtorka/index.md
   - ASO:
       - aso/index.md
