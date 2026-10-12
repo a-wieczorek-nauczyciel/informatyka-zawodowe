@@ -24,6 +24,9 @@ markdown_extensions:
   - md_in_html
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.keys
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -65,4 +68,24 @@ nav:
               - Instalacja Windows: aso/klasa-2/01-wirtualizacja-i-instalacja/03-instalacja-windows/index.md
               - Instalacja Linux: aso/klasa-2/01-wirtualizacja-i-instalacja/04-instalacja-linux/index.md
               - Zadania utrwalające: aso/klasa-2/01-wirtualizacja-i-instalacja/05-zadania-utrwalajace/index.md
-      - Klasa 3: aso/klasa-3/index.md
+          - PowerShell:
+              - aso/klasa-2/02-powershell/index.md
+              - Wprowadzenie do PowerShell: aso/klasa-2/02-powershell/01-wprowadzenie/index.md
+              - Potok i obiekty: aso/klasa-2/02-powershell/02-potok-i-obiekty/index.md
+              - Pliki, użytkownicy, usługi: aso/klasa-2/02-powershell/03-administracja/index.md
+              - Pierwsze skrypty: aso/klasa-2/02-powershell/04-skrypty/index.md
+              - Zadania utrwalające: aso/klasa-2/02-powershell/05-zadania-utrwalajace/index.md
+      - Klasa 3:
+          - aso/klasa-3/index.md
+          - Serwer DHCP:
+              - aso/klasa-3/01-dhcp/index.md
+              - Jak działa DHCP: aso/klasa-3/01-dhcp/01-jak-dziala-dhcp/index.md
+              - Instalacja roli i zakres: aso/klasa-3/01-dhcp/02-instalacja-i-zakres/index.md
+              - Wykluczenia, rezerwacje, opcje: aso/klasa-3/01-dhcp/03-rezerwacje-i-opcje/index.md
+              - Zadania utrwalające: aso/klasa-3/01-dhcp/04-zadania-utrwalajace/index.md
+          - Serwer DNS:
+              - aso/klasa-3/02-dns/index.md
+              - Jak działa DNS: aso/klasa-3/02-dns/01-jak-dziala-dns/index.md
+              - Instalacja roli i strefy: aso/klasa-3/02-dns/02-instalacja-i-strefy/index.md
+              - Rekordy, przekazywanie, testowanie: aso/klasa-3/02-dns/03-rekordy-i-testowanie/index.md
+              - Zadania utrwalające: aso/klasa-3/02-dns/04-zadania-utrwalajace/index.md
